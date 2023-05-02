@@ -1,0 +1,294 @@
+@include b(checkbox) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: $component-span;
+  font-size: $font-size-small;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: $content-text-color;
+  cursor: pointer;
+  user-select: none;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include when(bordered) {
+    box-sizing: border-box;
+    height: $component-size;
+    padding: $text-padding;
+    border: $border-base;
+    border-radius: $border-radius;
+    line-height: normal;
+
+    .c-checkbox-inner {
+      border-radius: 50%;
+    }
+
+    &.checked {
+      border-color: $primary-color;
+    }
+
+    &.disabled {
+      border-color: $border-color;
+      cursor: not-allowed;
+    }
+
+    & + .c-checkbox.bordered {
+      margin-left: $component-span;
+    }
+  }
+
+  @include when(circle) {
+    .c-checkbox-inner {
+      border-radius: 50%;
+    }
+  }
+
+  @include e(input) {
+    position: relative;
+    display: inline-flex;
+    outline: none;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include when(disabled) {
+      .c-checkbox-inner {
+        border-color: $disabled-border-color;
+        background-color: $disabled-background;
+        cursor: not-allowed;
+
+        &::after {
+          border-color: $secondary-text-color;
+          cursor: not-allowed;
+        }
+
+        & + .c-checkbox-label {
+          cursor: not-allowed;
+        }
+      }
+
+      &.checked {
+        .c-checkbox-inner {
+          border-color: $disabled-border-color;
+          background-color: $disabled-background;
+
+          &::after {
+            border-color: $secondary-text-color;
+          }
+        }
+      }
+
+      &.indeterminate {
+        .c-checkbox-inner {
+          border-color: $disabled-border-color;
+          background-color: $disabled-background;
+
+          &::before {
+            border-color: $secondary-text-color;
+            background-color: $secondary-text-color;
+          }
+        }
+      }
+
+      & + span.c-checkbox-label {
+        color: $disabled-text-color;
+        cursor: not-allowed;
+      }
+    }
+
+    @include when(checked) {
+      .c-checkbox-inner {
+        border-color: $primary-color;
+        background-color: $primary-color;
+
+        &::after {
+          transform: rotate(45deg) scaleY(1);
+        }
+      }
+
+      & + .c-checkbox-label {
+        color: $primary-color;
+      }
+    }
+
+    @include when(focus) { /* focus时 视觉上区分 */
+      .c-checkbox-inner {
+        border-color: $primary-color;
+      }
+    }
+
+    @include when(indeterminate) {
+      .c-checkbox-inner {
+        border-color: $primary-color;
+        background-color: $primary-color;
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          display: block;
+          height: 2px;
+          margin-top: -1px;
+          background-color: #fff;
+          transform: scale(.5);
+          content: '';
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include e(inner) {
+    position: relative;
+    z-index: $z-index-normal;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: $font-size-large;
+    height: $font-size-large;
+    border: $border-base;
+    border-radius: $border-radius;
+    transition: border-color $transition-time cubic-bezier(.71, -.46, .29, 1.46), background-color $transition-time cubic-bezier(.71, -.46, .29, 1.46);
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      box-sizing: content-box;
+      width: 4px;
+      height: 8px;
+      margin-top: -6px;
+      margin-left: -2px;
+      border: $border-width solid #fff;
+      border-top: 0;
+      border-left: 0;
+      transform: rotate(45deg) scaleY(0);
+      transform-origin: center;
+      transition: transform $transition-time ease-in .05s;
+      content: "";
+    }
+  }
+
+  @include e(original) {
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    margin: 0;
+    outline: none;
+    opacity: 0;
+  }
+
+  @include e(label) {
+    display: block;
+    padding-left: $content-padding;
+    font-size: $font-size-small;
+    line-height: 1;
+  }
+}
+
+@include b(checkbox-button) {
+  position: relative;
+  display: inline-flex;
+
+  &.checked {
+    & .c-checkbox-button-inner {
+      border-color: $primary-color;
+      color: #fff;
+      background-color: $primary-color;
+      box-shadow: -1px 0 0 0 mix(#fff, $primary-color, 40%);
+    }
+
+    &:first-child .c-checkbox-button-inner {
+      border-left-color: $primary-color;
+    }
+  }
+
+  &.disabled {
+    & .c-checkbox-button-inner {
+      border-color: $border-color;
+      color: $disabled-text-color;
+      background-image: none;
+      background-color: $disabled-background;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    &:first-child .c-checkbox-button-inner {
+      border-left-color: $border-color;
+    }
+  }
+
+  &:first-child {
+    .c-checkbox-button-inner {
+      border-left: $border-base;
+      border-radius: $border-radius 0 0 $border-radius;
+      box-shadow: none !important;
+    }
+  }
+
+  &.focus {
+    & .c-checkbox-button-inner {
+      border-color: $primary-color;
+    }
+  }
+
+  &:last-child {
+    .c-checkbox-button-inner {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  @include e(inner) {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    padding: 0 $content-padding;
+    margin: 0;
+    border: $border-width solid $border-color;
+    border-left: 0;
+    outline: none;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: $content-text-color;
+    background: $background;
+    transition: $transition-time;
+    cursor: pointer;
+    -webkit-appearance: none;
+    user-select: none;
+
+    & [class*="icon-"] {
+      line-height: .9;
+
+      & + span {
+        margin-left: $text-span;
+      }
+    }
+  }
+
+  @include e(original) {
+    position: absolute;
+    z-index: -1;
+    margin: 0;
+    outline: none;
+    opacity: 0;
+  }
+
+  @each $sizeName, $size in $sizes {
+    &.#{$sizeName} {
+      .c-checkbox-button-inner {
+        height: map-get($size, 'size');
+        line-height: map-get($size, 'size') - (2*$border-width);
+        font-size: map-get($size, 'fontSize');
+      }
+    }
+  }
+}

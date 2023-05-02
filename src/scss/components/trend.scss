@@ -1,0 +1,19 @@
+.c-trend {
+  display: inline-block;
+
+  &-content {
+
+  }
+
+  &-icon {
+
+  }
+
+  &.up {
+    color: $success-color;
+  }
+
+  &.down {
+    color: $error-color;
+  }
+}

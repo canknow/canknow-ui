@@ -1,0 +1,45 @@
+@include b(avatar) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: $component-size;
+  height: $component-size;
+  overflow: hidden;
+  font-size: $font-size;
+  color: $sub-color;
+  background: $background;
+
+  > img {
+    display: block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  @include m(circle) {
+    border-radius: 50%;
+  }
+
+  @include m(square) {
+    border-radius: $border-radius;
+  }
+
+  @include m(with-icon) {
+    font-size: $font-size;
+  }
+
+  @include m(large) {
+    width: $component-size-large;
+    height: $component-size-large;
+  }
+
+  @include m(medium) {
+    width: $component-size;
+    height: $component-size;
+  }
+
+  @include m(small) {
+    width: $component-size-small;
+    height: $component-size-small;
+  }
+}

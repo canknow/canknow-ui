@@ -1,0 +1,114 @@
+.c-input-number {
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  width: 96px;
+
+  .c-input {
+    flex: 1;
+
+    .c-input-input {
+      padding-left: $content-padding !important;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    .c-input-number-controls {
+      opacity: 1;
+    }
+  }
+
+  .c-input-number-controls {
+    opacity: 0;
+    transition-property: opacity;
+    transition: $transition-time;
+  }
+
+  &-controls {
+    position: absolute;
+    top: $border-width;
+    bottom: $border-width;
+    right: $border-width;
+    display: flex;
+    flex-direction: column;
+    border-left: $border-width solid $border-color;
+
+    &-divider {
+      width: 100%;
+      height: $border-width;
+      background: $border-color;
+    }
+  }
+
+  &-increase {
+
+  }
+
+  &-decrease {
+
+  }
+
+  &-increase,
+  &-decrease {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-size-small;
+    line-height: 1;
+    text-align: left;
+    color: $content-text-color;
+    background: $component-background;
+    cursor: pointer;
+    user-select: none;
+
+    [class*=icon] {
+      transform: scale(.5);
+    }
+
+    &:hover {
+      color: $primary-color;
+
+      &:not(.disabled) ~ .input .input-inner:not(.disabled) {
+        border-color: $border-color;
+      }
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  @include when(disabled) {
+    .c-input-number-increase,
+    .c-input-number-decrease {
+      border-color: $border-color;
+      color: $disabled-border-color;
+
+      &:hover {
+        color: $disabled-border-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @each $sizeName in $size-keys {
+    $index: index($size-keys, $sizeName) - 1;
+    $size: map-get($sizes, $sizeName);
+
+    &.#{$sizeName} {
+
+      .c-input-input {
+        padding-right: map-get($size, 'size') + $content-padding;
+        padding-left: map-get($size, 'size') + $content-padding;
+      }
+
+      .c-input-number-increase,
+      .c-input-number-decrease {
+        width: map-get($size, 'size');
+        height: map-get($size, 'size') - 2 * $border-width;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.price-tag {
+  position: relative;
+  display: inline-block;
+  padding: $text-padding $content-padding;
+  margin-left: $component-span;
+  border-color: $background;
+  font-weight: bold;
+  line-height: 1;
+  vertical-align: baseline;
+  text-transform: none;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, .6);
+  background-color: $background;
+  transition: background .1s ease;
+  cursor: pointer;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 1.8*$space;
+    height: 1.8*$space;
+    background: $background;
+    transform: translateY(-50%) translateX(50%) rotate(-45deg);
+    transition: background .1s ease;
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: -.3*$space;
+    width: .6*$space;
+    height: .6*$space;
+    margin-top: -.3*$space;
+    border-radius: 100%;
+    background-color: #fff !important;
+    content: '';
+
+    @include shadow(3, 'down');
+  }
+
+  &.important {
+    border-color: $important-color !important;
+    color: #fff !important;
+    background-color: $important-color !important;
+
+    &::before {
+      background-color: $important-color !important;
+    }
+  }
+
+  .alert-close-button {
+    color: $error-color;
+  }
+}
+
+.price-tag-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 0;
+
+  .price-tag {
+    display: inline-block;
+    margin-right: $text-span;
+  }
+}

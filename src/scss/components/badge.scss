@@ -1,0 +1,54 @@
+.c-badge {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &-count {
+    position: absolute;
+    z-index: 10;
+    top: -$space;
+    right: 0;
+    min-width: $space2;
+    height: $space2;
+    padding: 0 $text-padding;
+    border: $border-width solid transparent;
+    border-radius: $content-padding;
+    font-size: $font-size-small;
+    line-height: $space2 - 2*$border-width;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff;
+    background: $error-color;
+    transform: translateX(50%);
+    transform-origin: -10% center;
+
+    a,
+    a:hover {
+      color: #fff;
+    }
+
+    &.alone {
+      position: relative;
+      top: auto;
+      display: block;
+      transform: translateX(0);
+    }
+
+    @include shadow(3, 'down');
+  }
+
+  &-dot {
+    position: absolute;
+    z-index: 10;
+    top: -4px;
+    right: -8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: $error-color;
+    transform: translateX(-50%);
+    transform-origin: 0 center;
+
+    @include shadow(3, 'down');
+  }
+}

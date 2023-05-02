@@ -1,0 +1,29 @@
+.error-page {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  &-404 {
+  }
+
+  .error-page-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: $text-padding $content-padding;
+    background-color: #68217a;
+  }
+
+  .error-body {
+    .error-code{
+    }
+
+    .error-message {
+
+    }
+  }
+
+  @extend .page;
+}

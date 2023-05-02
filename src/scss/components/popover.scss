@@ -1,0 +1,36 @@
+@include b(popover) {
+  position: absolute;
+  z-index: $z-index-modal;
+  min-width: 150px;
+  border-radius: $border-radius;
+  font-size: $popover-font-size;
+  text-align: justify;
+  word-break: break-all;
+  color: $content-text-color;
+  background: $popover-background-color;
+  border: $border-width solid $border-color;
+  @include shadow(3, 'down');
+
+  &:focus:active,
+  &:focus {
+    outline-width: 0;
+  }
+
+  @include e(title) {
+    font-size: $popover-title-font-size;
+    color: $popover-title-font-color;
+    padding: $content-padding;
+    border-bottom: $border-width solid $split-color;
+  }
+
+  @include e(body) {
+    padding: $content-padding;
+  }
+
+  @include e(reference) {
+    &:focus:not(.focusing),
+    &:focus:hover {
+      outline-width: 0;
+    }
+  }
+}

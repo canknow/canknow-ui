@@ -1,0 +1,33 @@
+.c-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: $content-padding 0;
+  text-align: center;
+  color: $placeholder-text-color;
+
+  &-icon {
+    font-size: $component-size-large;
+  }
+
+  &-image {
+    width: 160px;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  &-description {
+    margin-top: $component-span;
+
+    p {
+      margin: 0;
+      font-size: $font-size;
+    }
+  }
+
+  &-bottom {
+    margin-top: $component-span-large;
+  }
+}

@@ -1,0 +1,42 @@
+.list-form-list {
+  margin-bottom: 0;
+
+  li {
+    background-color: #fff;
+
+    &:not(:last-child) {
+      border-bottom: $border-width solid $border-color;
+    }
+  }
+
+  .form-group {
+    padding: $content-padding;
+    margin-bottom: 0;
+
+    .form-group-key {
+      display: block;
+      width: 10*$space;
+      margin: 0 1*$space 0 0;
+      font-weight: normal;
+      font-size: $font-size-small;
+    }
+
+    .form-group-block {
+      text-align: right;
+
+      input {
+        border-color: transparent;
+      }
+
+      .static-text {
+        border-color: transparent;
+      }
+
+      @include flex-adapter;
+    }
+
+    @include flex-horizontal-align-center;
+  }
+
+  @include list-un-styled;
+}

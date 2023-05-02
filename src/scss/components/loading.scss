@@ -1,0 +1,44 @@
+.c-loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+
+  &.fullscreen {
+    position: fixed;
+    z-index: $z-index-loading-bar;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .c-loading-box {
+    position: absolute;
+    z-index: $z-index-masker + 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .c-loading-text {
+      display: none;
+    }
+  }
+
+  &.show-text {
+    .c-loading-box {
+      .c-loading-text {
+        display: block;
+      }
+    }
+  }
+}
+
+.c-loading-parent-relative {
+  position: relative !important;
+  min-height: $component-size-larger;
+}

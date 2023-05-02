@@ -1,0 +1,186 @@
+@include b(slider) {
+  @include clearfix;
+
+  @include e(runway) {
+    position: relative;
+    width: 100%;
+    height: $slider-height;
+    margin: $content-padding 0;
+    border-radius: $border-radius;
+    background-color: $background;
+    cursor: pointer;
+
+    &.show-input {
+      width: auto;
+      margin-right: 160px;
+    }
+
+    &.disabled {
+      cursor: default;
+
+      .c-slider-bar {
+        background-color: $disabled-background;
+      }
+
+      .c-slider-button {
+        border-color: $disabled-background;
+      }
+
+      .c-slider-button-wrapper {
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+
+      .c-slider-button {
+        &:hover,
+        &.hover,
+        &.dragging {
+          transform: scale(1);
+        }
+
+        &:hover,
+        &.hover {
+          cursor: not-allowed;
+        }
+
+        &.dragging {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  @include e(input) {
+    float: right;
+    width: 130px;
+
+    &.c-input-number-small {
+      margin-top: 5px;
+    }
+
+    &.c-input-number-medium {
+      margin-top: 0;
+    }
+
+    &.c-input-number-large {
+      margin-top: -2px;
+    }
+  }
+
+  @include e(bar) {
+    position: absolute;
+    height: $slider-height;
+    border-bottom-left-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    background-color: $primary-color;
+  }
+
+  @include e(button-wrapper) {
+    position: absolute;
+    z-index: 1001;
+    width: $slider-button-size;
+    height: $slider-button-size;
+    line-height: normal;
+    text-align: center;
+    background-color: transparent;
+    top: 1px;
+    transform: translate(-50%, -50%);
+    user-select: none;
+
+    &:hover,
+    &.hover {
+      cursor: grab;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  @include e(button) {
+    width: $slider-button-size;
+    height: $slider-button-size;
+    border: solid 2px $primary-color;
+    border-radius: 50%;
+    background-color: $white-color;
+    transition: $transition-time;
+    user-select: none;
+
+    &:hover,
+    &.hover,
+    &.dragging {
+      transform: scale(1.2);
+    }
+
+    &:hover,
+    &.hover {
+      cursor: grab;
+    }
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  @include e(stop) {
+    position: absolute;
+    width: $slider-height;
+    height: $slider-height;
+    border-radius: 50%;
+    background-color: $white-color;
+    transform: translateX(-50%);
+  }
+
+  @include e(marks) {
+    top: 0;
+    left: 12px;
+    width: 18px;
+    height: 100%;
+
+    @include e(marks-text) {
+      position: absolute;
+      margin-top: 15px;
+      font-size: $font-size;
+      color: $info-text-color;
+      transform: translateX(-50%);
+    }
+  }
+
+  @include when(vertical) {
+    position: relative;
+
+    .c-slider-runway {
+      width: $slider-height;
+      height: 100%;
+      margin: 0 $content-padding;
+    }
+
+    .c-slider-bar {
+      width: $slider-height;
+      height: auto;
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+
+    .c-slider-button-wrapper {
+      top: auto;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    .c-slider-stop {
+      transform: translateY(50%);
+    }
+
+    @include e(marks-text) {
+      left: 15px;
+      margin-top: 0;
+      transform: translateY(50%);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.demo-transition {
+  .transition-box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: $content-padding-large $content-padding-large;
+    margin-right: $component-span-large;
+    margin-bottom: $component-span;
+    border-radius: $border-radius-large;
+    font-size: $font-size;
+    text-align: center;
+    color: #fff;
+    background-color: $primary-color;
+  }
+}

@@ -1,0 +1,76 @@
+.c-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 $content-padding;
+  font-size: $font-size-small;
+  vertical-align: middle;
+  transition: background $transition-time ease;
+  cursor: pointer;
+  user-select: none;
+
+  + .c-tag {
+    margin-left: $text-span;
+  }
+
+  &.fill {
+    background: $background;
+  }
+
+  &.border {
+    border: $border-width solid $border-color;
+  }
+
+  &.radius {
+    border-radius: $border-radius;
+  }
+
+  .c-tag-text {
+    display: inline-block;
+    font-weight: normal;
+    text-transform: none;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .c-tag-close {
+    margin-left: $text-span;
+    text-align: center;
+    color: $sub-color;
+    user-select: none;
+  }
+
+  @each $sizeName, $size in $sizes {
+    &.#{$sizeName} {
+      height: map-get($size, 'size');
+
+      &.circle {
+        border-radius: map-get($size, 'size') / 2;
+      }
+    }
+  }
+
+  @each $sceneName, $scene in $scenes {
+    &.#{$sceneName} {
+      &.border {
+        border: $border-width solid map_get($scene, 'border');
+      }
+
+      &.fill {
+        background: map_get($scene, 'background');
+
+        .c-tag-text {
+          color: map_get($scene, 'color');
+        }
+
+        .c-tag-close {
+          color: map_get($scene, 'color');
+        }
+      }
+
+      .c-tag-text {
+        color: map_get($scene, 'ghostColor');
+      }
+    }
+  }
+}

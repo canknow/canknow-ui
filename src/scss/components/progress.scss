@@ -1,0 +1,160 @@
+@include b(progress) {
+  position: relative;
+  line-height: 1;
+
+  @include e(text) {
+    font-size: $font-size;
+    color: $content-text-color;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: $component-span;
+    line-height: 1;
+
+    i {
+      vertical-align: middle;
+      display: block;
+    }
+  }
+
+  @include m(step) {
+    display: flex;
+    align-items: center;
+
+    .c-progress-step-outer {
+      display: flex;
+      align-items: center;
+    }
+
+    .c-progress-step-item {
+      width: $font-size-large;
+      height: $font-size-small;
+      background: $background;
+
+      &:not(:last-child) {
+        margin-right: $text-span;
+      }
+
+      &.active {
+        background: $primary-color;
+      }
+    }
+  }
+
+  @include m((circle, dashboard)) {
+    display: inline-block;
+
+    .c-progress-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      transform: translate(0, -50%);
+
+      i {
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+  }
+
+  @include m(without-text) {
+    .c-progress-text {
+      display: none;
+    }
+
+    .c-progress-bar {
+      padding-right: 0;
+      margin-right: 0;
+      display: block;
+    }
+  }
+
+  @include m(text-inside) {
+    .c-progress-bar {
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+
+  @include when(success) {
+    .c-progress-bar-inner {
+      background-color: $success-color;
+    }
+
+    .c-progress-text {
+      color: $success-color;
+    }
+  }
+
+  @include when(warning) {
+    .c-progress-bar-inner {
+      background-color: $warning-color;
+    }
+
+    .c-progress-text {
+      color: $warning-color;
+    }
+  }
+
+  @include when(exception) {
+    .c-progress-bar-inner {
+      background-color: $danger-color;
+    }
+
+    .c-progress-text {
+      color: $danger-color;
+    }
+  }
+}
+
+@include b(progress-bar) {
+  padding-right: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  margin-right: -55px;
+  box-sizing: border-box;
+
+  @include e(outer) {
+    height: 6px;
+    border-radius: 100px;
+    background-color: $background;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  @include e(inner) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: $primary-color;
+    text-align: right;
+    border-radius: 100px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: width 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @include e(inner-text) {
+    color: #ffffff;
+    font-size: $font-size-small;
+    margin: 0 $text-span;
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 32px 0;
+  }
+}

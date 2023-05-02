@@ -1,0 +1,28 @@
+.c-view-page-head {
+  margin-bottom: $component-span;
+
+  .c-view-page-title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 2*$space;
+
+    small {
+      font-weight: 400;
+      font-size: $font-size-small;
+    }
+
+    @include flex-adapter;
+  }
+
+  @include flex-horizontal-align-center;
+}
+
+@media (max-width: $sm) {
+  .c-view-page-head {
+    display: block !important;
+
+    .c-view-page-title {
+      margin-bottom: $module-span;
+    }
+  }
+}

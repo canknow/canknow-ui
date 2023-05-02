@@ -1,0 +1,27 @@
+.c-alert {
+  position: relative;
+  padding: $text-padding $content-padding;
+  margin-bottom: $component-span;
+  border: solid transparent;
+  font-size: $font-size-small;
+  color: $title-text-color;
+  background: $background;
+
+  &.radius {
+    border-radius: $border-radius;
+  }
+
+  .c-alert-close-button {
+    position: absolute;
+    top: 50%;
+    right: $content-padding;
+    opacity: 0.2;
+    transform: translateY(-50%);
+  }
+
+  @each $sceneName, $scene in $scenes {
+    &.#{$sceneName} {
+      background: mix(white, map-get($scene, 'background'), $alert-white-mix);
+    }
+  }
+}

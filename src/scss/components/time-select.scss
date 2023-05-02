@@ -1,0 +1,35 @@
+@import "./date-picker/picker.scss";
+@import "./date-picker/date-picker.scss";
+@import "./scrollbar.scss";
+@import "./popper";
+
+.time-select {
+  margin: $text-padding 0;
+  min-width: 0;
+}
+
+.time-select .c-picker-panel-content {
+  max-height: 200px;
+  margin: 0;
+}
+
+.time-select-item {
+  padding: $text-padding $content-padding;
+  font-size: $font-size;
+}
+
+.time-select-item.selected:not(.disabled) {
+  color: $primary-color;
+  font-weight: bold;
+}
+
+.time-select-item.disabled {
+  color: $disabled-text-color;
+  cursor: not-allowed;
+}
+
+.time-select-item:hover {
+  background-color: $hover-background;
+  font-weight: bold;
+  cursor: pointer;
+}

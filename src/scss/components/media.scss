@@ -1,0 +1,116 @@
+.media-list {
+  &.selectable {
+    .media {
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: $content-padding;
+        display: block;
+        width: $component-size-small;
+        height: $component-size-small;
+        margin-top: - $component-size-small/2;
+        background-size: 100% 100%;
+        content: "";
+      }
+
+      &.selected {
+        &::after {
+        }
+      }
+    }
+  }
+
+  @include list-un-styled;
+}
+
+.media {
+  position: relative;
+  padding: $content-padding;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $highlight-background;
+  }
+
+  .media-container {
+    @include flex-adapter;
+    @include flex-horizontal;
+  }
+
+  .media-status {
+    position: absolute;
+    top: 50%;
+    right: $content-padding;
+    height: $component-size-small;
+    margin-top: -$component-size-small/2;
+    font-size: $font-size-small;
+    line-height: $component-size-small;
+    text-align: center;
+    color: $white-color;
+    background-color: $important-color;
+  }
+
+  .media-cover-wrap {
+    position: relative;
+
+    .media-cover{
+
+    }
+
+    .contact-status {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: $font-size-small;
+      height: $font-size-small;
+      border-radius: 50% !important;
+
+      &.online {
+        background-color: $success-color;
+      }
+
+      &.offline {
+        background-color: $error-color;
+      }
+    }
+  }
+
+  .media-body {
+    padding: 0 $content-padding;
+
+    .media-title {
+      display: block;
+      padding: 0;
+      margin: 0 0 $component-span 0;
+      font-size: $font-size;
+      line-height: 1.5;
+    }
+
+    .media-mete {
+      margin-bottom: $component-span;
+      color: $secondary-text-color;
+    }
+
+    .media-datetime {
+      float: right;
+      font-size: $font-size-small;
+      color: $property-text-color;
+    }
+
+    .media-content {
+      font-size: $font-size-small;
+      color: $secondary-text-color;
+    }
+
+    @include flex-adapter;
+  }
+
+  .right-button {
+    position: absolute;
+    top: 50%;
+    right: $component-span;
+    transform: translateY(-50%);
+  }
+
+  @include flex-horizontal;
+}

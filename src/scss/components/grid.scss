@@ -1,0 +1,95 @@
+.c-row {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  [class*="c-column-"] {
+    min-height: 1px;
+  }
+
+  > [class*="c-column-"] {
+    float: none;
+    display: block;
+    min-height: 1px;
+  }
+
+  &.separated-columns > [class*="c-column-"] {
+    padding-right: $content-padding;
+    padding-left: $content-padding;
+  }
+
+  @include when(justify-center) {
+    justify-content: center;
+  }
+
+  @include when(justify-end) {
+    justify-content: flex-end;
+  }
+
+  @include when(justify-space-between) {
+    justify-content: space-between;
+  }
+
+  @include when(justify-space-around) {
+    justify-content: space-around;
+  }
+
+  @include when(align-top) {
+    align-items: flex-start;
+  }
+
+  @include when(align-middle) {
+    align-items: center;
+  }
+
+  @include when(align-bottom) {
+    align-items: flex-end;
+  }
+}
+
+@mixin make-column($size) {
+  $separator: '';
+
+  @if $size != '' {
+    $separator: #{$size}-;
+  }
+
+  @for $i from 0 through 24 {
+    .c-column-#{$separator}#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .c-column-#{$separator}offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .c-column-#{$separator}offset-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .c-column-#{$separator}offset-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}
+
+@mixin make-column-response($size) {
+  @if $size != '' {
+    @include responsive($size) {
+      @include make-column($size);
+    }
+  }
+
+  @else {
+    @include make-column($size);
+  }
+}
+
+@include make-column-response('');
+@include make-column-response(xs);
+@include make-column-response(sm);
+@include make-column-response(md);
+@include make-column-response(lg);
+@include make-column-response(xl);

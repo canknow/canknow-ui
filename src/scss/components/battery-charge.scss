@@ -1,0 +1,123 @@
+.c-battery-charge {
+  display: flex;
+  overflow: hidden;
+
+  .c-battery-charge-number {
+    position: absolute;
+    z-index: 10;
+    top: 27%;
+    width: 300px;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .c-battery-charge-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+  }
+
+  .c-battery-charge-contrast {
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    background-color: #000;
+    filter: contrast(15) hue-rotate(0);
+    animation: hueRotate 10s infinite linear;
+  }
+
+  .c-battery-charge-circle {
+    position: relative;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    filter: blur(8px);
+
+    &::after {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      border-radius: 41% 52% 43% 56% / 42% 38% 58% 49%;
+      background-color: lime;
+      transform: translate(-50%, -50%) rotate(0);
+      animation: rotate 10s infinite linear;
+      content: "";
+    }
+
+    &::before {
+      position: absolute;
+      z-index: 10;
+      top: 40%;
+      left: 50%;
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      background-color: #000;
+      transform: translate(-50%, -50%);
+      content: "";
+    }
+  }
+
+  .c-battery-charge-bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100px;
+    height: 40px;
+    border-radius: 100px 100px 0 0;
+    background-color: lime;
+    filter: blur(5px);
+    transform: translate(-50%, 0);
+  }
+
+  li {
+    position: absolute;
+    border-radius: 50%;
+    background: lime;
+  }
+
+  @for $i from 0 through 15 {
+    $width: 15 + random(15) + px;
+    $opacity: random(100);
+
+    li:nth-child(#{$i}) {
+      top: 50%;
+      left: 15 + random(70) + px;
+      width: $width;
+      height: $width;
+      transform: translate(-50%, -50%);
+      animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+    }
+  }
+
+  @keyframes rotate {
+    50% {
+      border-radius: 42% 38% 58% 49% / 41% 52% 43% 56%;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(720deg);
+    }
+  }
+
+  @keyframes moveToTop {
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: .1;
+      transform: translate(-50%, -180px);
+    }
+  }
+
+  @keyframes hueRotate {
+    100% {
+      filter: contrast(15) hue-rotate(360deg);
+    }
+  }
+}

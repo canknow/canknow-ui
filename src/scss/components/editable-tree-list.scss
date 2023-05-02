@@ -1,0 +1,75 @@
+.editable-tree-list {
+  .editable-tree-item {
+    ul {
+      padding-left: $component-size-large;
+    }
+
+    .editable-tree-item-header {
+      height: $component-size;
+      padding: 0 $content-padding;
+      border-bottom: $border-width solid #fff;
+      line-height: $component-size;
+      background-color: $background;
+
+      .editable-tree-item-title {
+        display: block;
+        padding: $text-span $content-padding;
+        font-size: $font-size-small;
+
+        @include flex-horizontal-align-center;
+        @include flex-adapter;
+      }
+
+      .toggle-handler {
+        display: block;
+        margin-right: $text-span;
+        border-color: $background;
+        color: $background;
+      }
+
+      .sort-handler {
+        display: block;
+        width: $component-size;
+        height: $component-size;
+        border: $border-width solid transparent;
+        font-size: $font-size;
+        line-height: $component-size - 2*$border-width;
+        text-align: center;
+        color: #fff;
+        color: rgba(0, 0, 0, .3);
+        cursor: pointer;
+      }
+
+      @include flex-horizontal-align-center;
+    }
+
+    &.selected {
+      & > .editable-tree-item-header {
+        background-color: $primary-color;
+
+        .editable-tree-item-title {
+          color: #fff;
+        }
+
+        .icon-button {
+          border-color: #fff;
+          color: #fff;
+        }
+
+        .sort-handler {
+          color: rgba(255, 255, 255, .8);
+        }
+      }
+    }
+  }
+
+  ul {
+    &.closed {
+      display: none;
+    }
+
+    @include list-un-styled;
+  }
+
+  @include list-un-styled;
+}

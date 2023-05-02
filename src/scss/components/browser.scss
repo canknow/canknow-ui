@@ -1,0 +1,32 @@
+.c-browser {
+  position: relative;
+  border-top: 2em solid hsla(0, 0%, 90.2%, .7);
+  border-radius: 3px 3px 0 0;
+
+  &::before {
+    position: absolute;
+    top: -1.25em;
+    left: 1em;
+    display: block;
+    width: .5em;
+    height: .5em;
+    border-radius: 50%;
+    background-color: #f44;
+    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: -1.6em;
+    left: 5.5em;
+    right: 10px;
+    display: block;
+    height: 1.2em;
+    border-radius: 2px;
+    background-color: #fff;
+    content: "";
+  }
+
+  @include shadow(3, 'down');
+}

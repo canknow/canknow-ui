@@ -1,0 +1,63 @@
+// Slider
+$slider-color: lighten($primary-color, 10%) !default;
+$slider-button-size: $font-size-large !default;
+$slider-height: 3px !default;
+
+/* Popover
+------------- */
+$popover-background-color: $popup-background !default;
+$popover-font-size: $font-size !default;
+$popover-border-color: $border-color !default;
+$popover-arrow-size: 6px !default;
+$popover-padding: $content-padding !default;
+$popover-padding-large: $content-padding-large !default;
+$popover-title-font-size: $font-size !default;
+
+/* Tooltip
+------------- */
+$tooltip-fill: $primary-color !default;
+$tooltip-color: #fff !default;
+$tooltip-font-size: $font-size-small !default;
+$tooltip-border-color: $primary-color !default;
+$tooltip-arrow-size: 6px !default;
+$tooltip-padding: $content-padding !default;
+
+/* DatePicker
+------------- */
+$datepicker-font-color: $content-text-color !default;
+$datepicker-off-font-color: $disabled-text-color !default;
+$datepicker-header-font-color: $sub-color !default;
+$datepicker-icon-color: $content-text-color !default;
+$datepicker-border-color: $border-color !default;
+$datepicker-inner-border-color: $split-color !default;
+$datepicker-in-range-background-color: $highlight-background !default;
+$datepicker-in-range-hover-background-color: $background !default;
+$datepicker-active-color: $primary-color !default;
+$datepicker-hover-font-color: $primary-color !default;
+$datepicker-cell-hover-color: #fff !default;
+
+/* Scrollbar
+------------- */
+$scrollbar-background-color: $background !default;
+$scrollbar-hover-background-color: $primary-color !default;
+
+/* Popover
+------------- */
+$popover-background-color: #fff !default;
+$popover-font-size: $font-size !default;
+$popover-border-color: $border-color !default;
+$popover-arrow-size: 6px !default;
+$popover-padding: $content-padding !default;
+$popover-padding-large: $content-padding-large !default;
+$popover-title-font-size: $font-size-large !default;
+$popover-title-font-color: $content-text-color !default;
+
+$svg-monochrome-grey: #DCDDE0 !default;
+
+$table-background: white !default;
+$th-head-text-color: $sub-color !default;
+$th-head-background-color: transparent !default;
+
+$portlet-title-text-color: $title-text-color !default;
+
+$select-selected-text-color: $primary-color;

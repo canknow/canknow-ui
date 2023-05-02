@@ -1,0 +1,102 @@
+@include b(picker-panel) {
+  @include drop;
+
+  @include e((body, body-wrapper)) {
+    &::after {
+      clear: both;
+      display: table;
+      content: "";
+    }
+  }
+
+  @include e(content) {
+    position: relative;
+  }
+
+  @include e(footer) {
+    position: relative;
+    padding: $text-padding;
+    border-top: $border-width solid $datepicker-inner-border-color;
+    font-size: 0;
+    text-align: right;
+  }
+
+  @include e(shortcut) {
+    display: block;
+    width: 100%;
+    padding: $text-padding $content-padding;
+    border: 0;
+    outline: none;
+    font-size: $font-size;
+    text-align: left;
+    color: $datepicker-font-color;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      color: $datepicker-hover-font-color;
+    }
+
+    &.active {
+      color: $datepicker-active-color;
+      background-color: #e6f1fe;
+    }
+  }
+
+  @include e(button) {
+    padding: 0 $content-padding;
+    border: $border-width solid $border-color;
+    outline: none;
+    font-size: $font-size-small;
+    color: $title-text-color;
+    background-color: transparent;
+    cursor: pointer;
+
+    &[disabled] {
+      color: $disabled-text-color;
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(icon-button) {
+    border: 0;
+    outline: none;
+    font-size: $font-size-mini;
+    color: $datepicker-icon-color;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+      color: $datepicker-hover-font-color;
+    }
+
+    @include when(disabled) {
+      color: $disabled-text-color;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include e(link-button) {
+    vertical-align: middle;
+  }
+}
+
+.c-picker-panel *[slot=sidebar],
+.c-picker-panel-sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 110px;
+  padding-top: $text-padding;
+  overflow: auto;
+  border-right: $border-width solid $datepicker-inner-border-color;
+}
+
+.c-picker-panel *[slot=sidebar] + .c-picker-panel-body,
+.c-picker-panel-sidebar + .c-picker-panel-body {
+  margin-left: 110px;
+}

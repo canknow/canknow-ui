@@ -1,0 +1,17 @@
+@keyframes rainbow {
+  @for $i from 0 through 20 {
+    #{percentage($i * 0.05)} {
+      color: hsl(random(360%), 75%, 75%);
+    }
+  }
+}
+
+.c-rainbow-text {
+  font-family: Lato, serif;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+
+  span {
+    animation: rainbow 50s alternate infinite forwards;
+  }
+}

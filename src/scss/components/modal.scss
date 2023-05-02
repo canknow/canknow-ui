@@ -1,0 +1,214 @@
+.dialog-fade-enter-active {
+  animation: dialog-fade-in $transition-time;
+}
+
+.dialog-fade-leave-active {
+  animation: dialog-fade-out $transition-time;
+}
+
+@keyframes dialog-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}
+
+.c-modal-wrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+
+  .c-modal {
+    margin: 20vh auto 50px;
+    position: relative;
+    width: 520px;
+    @include shadow(3, 'down');
+    transform-style: preserve-3d;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    background: $popup-background;
+
+    &-header {
+      padding: 0 $content-padding;
+      position: relative;
+
+      .c-modal-header-container {
+        height: $component-size-large;
+        border-bottom: $border-width solid $split-color;
+
+        .c-modal-title {
+          margin: 0;
+          font-weight: bold;
+          font-size: $font-size-large;
+          text-align: center;
+          color: $title-text-color;
+          user-select: none;
+
+          @include flex-adapter;
+        }
+
+        .icon-button {
+          display: block;
+          color: $title-text-color;
+          cursor: pointer;
+        }
+
+        .c-button-prev {
+          left: $content-padding;
+        }
+
+        @include flex-horizontal-align-center;
+      }
+    }
+
+    &-body {
+      padding: $content-padding;
+    }
+
+    &-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: $content-padding;
+      text-align: right;
+
+      .text-button {
+        margin-left: $text-span;
+      }
+    }
+
+    &.match-parent {
+      height: calc(100% - #{$component-size * 2});
+      display: flex;
+      flex-direction: column;
+
+      .c-modal-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+    }
+
+    &.is-fullscreen {
+      width: 100% !important;
+      height: 100%;
+      margin: 0;
+      @include flex-vertical;
+
+      .c-modal-body {
+        overflow: auto;
+        @include flex-adapter;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .c-modal-wrap {
+    .c-modal {
+      width: calc(100% - #{$content-padding} * 2) !important;
+      margin: 0 $content-padding;
+
+      &:not(.c-modal-page) {
+        border-radius: $component-span;
+      }
+
+      .c-modal-header {
+        .c-modal-title {
+          @include transition($transition-time);
+        }
+
+        .c-modal-close-button {
+          display: none;
+        }
+      }
+
+      .c-modal-confirm-body {
+        display: block;
+        text-align: center;
+
+        .c-modal-confirm-body-icon-confirm {
+          margin: 0 auto $component-span auto;
+        }
+      }
+
+      .c-modal-footer {
+        padding: 0;
+        border-top: $border-width solid $border-color;
+
+        .c-text-button {
+          display: block;
+          margin-left: 0;
+          border-color: transparent;
+          border-radius: 0;
+
+          &:not(:last-child) {
+            border-right: $border-width solid $border-color;
+          }
+
+          @include flex-adapter;
+        }
+
+        @include flex-horizontal-align-center;
+      }
+    }
+  }
+}
+
+.c-modal-confirm-body {
+  padding: $content-padding;
+
+  .c-modal-confirm-body-icon {
+    display: block;
+    width: $component-size-large;
+    height: $component-size-large;
+    margin-right: $component-span;
+    font-size: $component-size-large;
+    line-height: 1;
+
+    &-info {
+      color: $info-color;
+    }
+
+    &-success {
+      color: $success-color;
+    }
+
+    &-error {
+      color: $error-color;
+    }
+
+    &-warning {
+      color: $warning-color;
+    }
+
+    &-confirm {
+      color: $warning-color;
+    }
+  }
+
+  .c-modal-confirm-body-content {
+    @include flex-adapter;
+  }
+
+  @include flex-horizontal-align-center;
+}

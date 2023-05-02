@@ -1,0 +1,69 @@
+@import "./../../../../styles/helpers";
+@import '~highlight.js/styles/docco.css';
+
+.example {
+  position: relative;
+  margin-bottom: $component-span;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  background-color: $module-background;
+  $height: 5 * $font-size-small;
+
+  .source {
+    position: relative;
+    min-height: $height + $font-size-small;
+    padding: $space2;
+  }
+
+  .meta {
+    height: 0;
+    border-top: $border-width solid $split-color;
+    overflow: hidden;
+    transition: height .2s;
+
+    .description {
+      padding: $content-padding;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .highlight {
+      pre {
+        padding: 0;
+        margin: 0;
+      }
+
+      .hljs {
+        max-height: none;
+        padding: $content-padding;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .demo-block-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: $content-padding;
+    margin-top: -1px;
+    border-top: $border-width solid $split-color;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    text-align: center;
+    cursor: pointer;
+
+    .view-source-text {
+      margin-right: $text-span;
+      font-size: $font-size-small;
+      color: $content-text-color;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}

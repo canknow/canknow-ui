@@ -1,0 +1,95 @@
+.c-pictures-uploader {
+
+  .c-picture-uploader-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    &-item {
+      position: relative;
+      margin-right: $component-span;
+      margin-bottom: $component-span;
+    }
+  }
+
+  .c-uploader-box {
+    display: block;
+  }
+
+  @include flex-horizontal;
+}
+
+.c-picture-uploader-picture-box {
+  position: relative;
+  border: $border-width dashed $border-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background;
+
+  &:hover {
+    border-color: $primary-color;
+
+    .c-picture-uploader-picture-box-actions {
+      opacity: 1;
+    }
+  }
+
+  .c-picture-uploader-picture-box-icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .c-picture-uploader-picture-box-icon {
+      font-size: $font-size;
+      color: $icon-color;
+    }
+  }
+
+  .c-picture-uploader-picture-box-img {
+    display: block;
+    text-align: center;
+    background-color: $background;
+  }
+
+  .c-picture-uploader-remove-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $component-size;
+    height: $component-size;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .c-picture-uploader-picture-box-actions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+    transition: opacity $transition-time;
+    cursor: default;
+
+    .c-picture-uploader-picture-box-action {
+      cursor: pointer;
+    }
+  }
+}

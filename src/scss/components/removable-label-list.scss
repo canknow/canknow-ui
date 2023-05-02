@@ -1,0 +1,50 @@
+.removable-label-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .removable-label {
+    display: inline-flex;
+    align-items: center;
+    height: $component-size;
+    padding: 0 $content-padding;
+    margin-right: $text-padding;
+    line-height: $component-size;
+    background: $background;
+
+    &.border {
+      border: $border-width solid $border-color;
+      line-height: $component-size - 2*$border-width;
+      background: transparent;
+
+      &.small {
+        line-height: $component-size-small - 2*$border-width;
+      }
+    }
+
+    &.radius {
+      border-radius: $component-size;
+
+      &.small {
+        border-radius: $component-size-small;
+      }
+    }
+
+    &.small {
+      height: $component-size-small;
+      line-height: $component-size-small;
+    }
+
+    .removable-label-text {
+      font-size: $font-size-small;
+      text-align: center;
+    }
+
+    .removable-label-close-button {
+      margin-left: $text-span;
+      color: $error-color;
+    }
+  }
+
+  @include user-select-none;
+}

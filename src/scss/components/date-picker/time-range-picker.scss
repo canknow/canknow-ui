@@ -1,0 +1,33 @@
+@include b(time-range-picker) {
+  width: 354px;
+  overflow: visible;
+
+  @include e(content) {
+    position: relative;
+    padding: $content-padding;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(cell) {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0;
+
+    &:first-child {
+      margin-right: $component-span;
+    }
+  }
+
+  @include e(header) {
+    margin-bottom: $component-span;
+    font-size: $font-size;
+    text-align: center;
+  }
+
+  @include e(body) {
+    border: $border-width solid $datepicker-border-color;
+    border-radius: $border-radius;
+  }
+}

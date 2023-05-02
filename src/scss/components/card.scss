@@ -1,0 +1,32 @@
+.c-card {
+  position: relative;
+  border-radius: $module-radius;
+  font-size: $font-size;
+  background: $module-background;
+  transition: all $transition-time $ease-in-out;
+
+  &.bordered {
+    border: $border-width solid $border-color;
+    border-color: $split-color;
+  }
+
+  &.shadow {
+    @include shadow(3, 'down');
+  }
+
+  &-header {
+    padding: $content-padding;
+    border-bottom: $border-width solid $split-color;
+  }
+
+  &-title {
+    font-weight: bold;
+  }
+
+  &-extra {
+  }
+
+  &-body {
+    padding: $content-padding;
+  }
+}

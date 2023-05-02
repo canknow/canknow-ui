@@ -1,0 +1,51 @@
+@mixin button-variant($color, $background, $border, $activeColor: null, $activeBackground: null, $activeBorderColor: null) {
+  border-color: $border;
+  color: $color;
+  background-color: $background;
+
+  &.primary.light-shadow {
+    background: linear-gradient(-45deg, #32b6ff, #4276ff);
+  }
+
+  &:hover {
+    border-color: mix(#fff, $border, $hover-lighten);
+    color: $color;
+    background-color: mix(#fff, $background, $hover-lighten);
+  }
+
+  &:active {
+    border-color: $activeBorderColor or mix(#000, $border, $hover-lighten);
+    color: $activeColor or $color;
+    background-color: $activeBackground or mix(#000, $background, $hover-lighten);
+  }
+}
+
+@mixin ghost-button-variant($color) {
+  border-color: transparent;
+  color: $color;
+  background: transparent;
+}
+
+@mixin border-button-variant($color, $border-color, $active-color: null, $active-background: null, $active-border-color: null) {
+  border-color: $border-color;
+  color: $color;
+  background-color: transparent;
+
+  &:active {
+    border-color: if($active-border-color == null, #fff, $active-border-color);
+    color: if($active-color == null, #fff, $active-color);
+    background-color: if($active-background == null, $color, $active-background);
+  }
+}
+
+@mixin plain-button-variant($color, $border-color, $active-color: null, $active-background: null, $active-border-color: null) {
+  border-color: $border-color;
+  color: $color;
+  background-color: rgba($color, 20%);
+
+  &:active {
+    border-color: if($active-border-color == null, #fff, $active-border-color);
+    color: if($active-color == null, #fff, $active-color);
+    background-color: if($active-background == null, $color, $active-background);
+  }
+}

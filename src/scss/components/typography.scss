@@ -1,0 +1,185 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: $component-span;
+  font-weight: 300;
+  line-height: 1;
+}
+
+h6 {
+  font-size: $font-size * 1.25;
+}
+
+h5 {
+  font-size: $font-size * 1.5;
+}
+
+h4 {
+  font-size: $font-size * 1.75;
+}
+
+h3 {
+  font-size: $font-size * 2;
+}
+
+h2 {
+  font-size: $font-size * 2.25;
+}
+
+h1 {
+  font-size: $font-size * 2.5;
+}
+
+.block-title {
+  font-weight: normal;
+}
+
+address,
+dl,
+ol,
+p,
+ul {
+  margin-bottom: $component-span;
+}
+
+dl,
+ol,
+p,
+pre,
+ul {
+  margin-top: 0;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+hr {
+  border: $border-width solid $border-color;
+  border-top: 0;
+
+  &.well-hr {
+    clear: both;
+    height: 1px;
+    margin: 4*$space 0;
+    border: 0;
+    background-image: -webkit-linear-gradient(left, #b8e1ff 33.3333%, #fcd2c5 33.3333%, #fcd2c5 66.6666%, #e0c5eb 66.6666%);
+    background-image: linear-gradient(to right, #b8e1ff 33.3333%, #fcd2c5 33.3333%, #fcd2c5 66.6666%, #e0c5eb 66.6666%);
+  }
+}
+
+.section {
+  padding-top: 4.8*$space;
+
+  .dark {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #fff;
+    }
+
+    p {
+      color: $secondary-text-color;
+    }
+  }
+}
+
+.dl-horizontal {
+  dt {
+    float: left;
+    clear: left;
+    width: 16*$space;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  dd {
+    margin-left: 18*$space;
+
+    &::after,
+    &::before {
+      display: table;
+      content: " ";
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .dl-horizontal {
+    dt {
+      width: 10*$space;
+    }
+
+    dd {
+      margin-left: 12*$space;
+    }
+  }
+}
+
+blockquote {
+  padding: $content-padding;
+  margin: 1.5*$space 0;
+  border-left: .6*$space solid $border-color;
+  background: $background;
+
+  &::before {
+    font-size: 4*$space;
+    line-height: .1*$space;
+    vertical-align: -.4*$space;
+    color: $property-text-color;
+    content: open-quote;
+  }
+
+  .small,
+  footer,
+  small {
+    display: block;
+    font-size: 80%;
+    color: $content-text-color;
+  }
+
+  .small::before,
+  footer::before,
+  small::before {
+    content: '\2014 \00A0';
+  }
+}
+
+pre {
+  display: block;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.banner-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.money {
+  color: $price-color;
+}
+
+.price-sign {
+  font-style: normal;
+  font-size: 80%;
+}

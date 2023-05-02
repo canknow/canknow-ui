@@ -1,0 +1,58 @@
+.c-button-group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+
+  .c-text-button {
+    position: relative;
+    display: inline-flex;
+    box-shadow: none;
+
+    & + .c-text-button {
+      margin-left: -$border-width;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 1;
+    }
+
+    &:first-child:last-child.round {
+      border-radius: $component-size;
+    }
+
+    &:first-child:last-child.circle {
+      border-radius: $component-size;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-right-color: $border-color;
+      border-left-color: $border-color;
+      border-radius: 0;
+    }
+
+    &:not(:first-child) {
+      border-left-color: $border-color;
+    }
+
+    &:not(:last-child) {
+      border-right-color: $border-color;
+    }
+
+    &:first-child {
+      margin-left: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &.disabled {
+      z-index: 1;
+    }
+  }
+}

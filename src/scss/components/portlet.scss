@@ -1,0 +1,72 @@
+.c-portlet {
+  padding: 0;
+  border: $border-width solid transparent;
+  background-color: $module-background;
+
+  &.border {
+    border-color: $border-color;
+  }
+
+  &.radius {
+    border-radius: $component-span;
+
+    .c-portlet-header {
+      border-top-right-radius: $component-span;
+      border-top-left-radius: $component-span;
+    }
+  }
+
+  &-header {
+    padding: $content-padding;
+    border-bottom: $border-width solid $split-color;
+
+    .c-portlet-icon {
+      display: block;
+      margin-right: $icon-text-span;
+      font-size: $font-size-small*1.5;
+      color: $title-text-color;
+    }
+
+    .c-portlet-title {
+      display: block;
+      font-weight: bold;
+      font-size: $font-size;
+      color: $portlet-title-text-color;
+
+      @include flex-adapter;
+    }
+
+    .c-portlet-action-bar {
+      @include flex-horizontal-align-center;
+    }
+
+    @include flex-horizontal-align-center;
+  }
+
+  &-body {
+    clear: both;
+  }
+
+  &.flex {
+    display: flex;
+    flex-direction: column;
+
+    .c-portlet-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &.padding {
+    .c-portlet-body {
+      padding: $content-padding;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    align-items: center;
+    border-top: $border-width solid $split-color;
+  }
+}

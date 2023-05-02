@@ -1,0 +1,81 @@
+.c-table-filter {
+  box-sizing: border-box;
+  margin: 2px 0;
+  border: $border-width solid $split-color;
+  border-radius: $border-radius;
+  background-color: #fff;
+  @include shadow(3, 'down');
+}
+
+.c-table-filter-list {
+  list-style: none;
+  min-width: 100px;
+  padding: 5px 0;
+  margin: 0;
+}
+
+.c-table-filter-list-item {
+  padding: 0 $content-padding;
+  line-height: 36px;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $hover-background;
+  }
+
+  &.active {
+    color: #fff;
+    background-color: $primary-color;
+  }
+}
+
+.c-table-filter-content {
+  min-width: 100px;
+}
+
+.c-table-filter-bottom {
+  padding: 8px;
+  border-top: $border-width solid $split-color;
+
+  button {
+    padding: 0 3px;
+    border: none;
+    font-size: 13px;
+    color: #606266;
+    background: 0 0;
+    cursor: pointer;
+
+    &:hover {
+      color: #409eff;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.disabled {
+      color: $disabled-text-color;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.c-table-filter-wrapper {
+  max-height: 280px;
+}
+
+.c-table-filter-checkbox-group {
+  padding: $content-padding;
+
+  .c-checkbox {
+    display: flex;
+    margin-right: $text-span;
+    margin-bottom: $component-span;
+    margin-left: $text-span;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

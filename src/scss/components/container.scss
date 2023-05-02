@@ -1,0 +1,10 @@
+.c-container {
+  padding: $content-padding;
+}
+
+.c-container-responsive {
+  padding: $content-padding;
+  margin: 0 auto;
+
+  @include make-container-max-widths();
+}

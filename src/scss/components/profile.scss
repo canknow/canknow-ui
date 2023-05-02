@@ -1,0 +1,93 @@
+.profile {
+  position: relative;
+
+  .access-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 $content-padding;
+    font-size: $font-size-small;
+    line-height: 1;
+    color: #fff;
+    background-color: $important-color;
+  }
+
+  .profile-avatar-box {
+    display: block;
+
+    .profile-avatar{
+
+    }
+  }
+
+  .profile-body {
+    padding-left: $content-padding;
+
+    .profile-blank-notice {
+      height: 100%;
+      color: $secondary-text-color;
+
+      @include flex-horizontal-align-center;
+    }
+
+    .profile-name {
+      margin: 0 0 $component-span 0;
+      font-weight: bold;
+      font-size: $font-size;
+
+      &.thin {
+        font-weight: normal;
+      }
+    }
+
+    .profile-additional-property {
+      margin: 0 0 $component-span 0;
+      font-size: $font-size-small;
+      color: $secondary-text-color;
+
+      .key {
+        margin-right: $text-span;
+      }
+
+      .value{
+
+      }
+
+      .main-number {
+        border-radius: $border-radius;
+        font-weight: bold;
+        font-size: $font-size-small;
+        line-height: 1;
+        color: $important-color;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include flex-adapter;
+  }
+
+  .master-button {
+    position: absolute;
+    top: 50%;
+    right: $content-padding;
+    margin-top: -$component-size/2;
+  }
+
+  @include flex-horizontal;
+}
+
+.profile-list {
+  li {
+    border-bottom: $border-width solid #eee;
+  }
+
+  .profile {
+    padding: $content-padding;
+    background-color: #fff;
+  }
+
+  @include list-un-styled;
+}

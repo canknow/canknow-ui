@@ -1,0 +1,21 @@
+@media (max-width: $sm) {
+  .dialog.confirm {
+    left: 10%;
+    width: 80%;
+    border-radius: 1.6*$space;
+    overflow: hidden;
+
+    .header {
+      padding: 0;
+      background-color: #fff;
+
+      .title {
+        color: $title-text-color;
+      }
+    }
+
+    .body {
+      text-align: center;
+    }
+  }
+}

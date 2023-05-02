@@ -1,0 +1,14 @@
+.c-circle-progress {
+  position: relative;
+  display: inline-block;
+
+  &-inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    line-height: 1;
+    text-align: center;
+    transform: translateY(-50%);
+  }
+}

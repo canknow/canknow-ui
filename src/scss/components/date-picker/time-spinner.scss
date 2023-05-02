@@ -1,0 +1,105 @@
+@include b(time-spinner) {
+  &.has-seconds {
+    .c-time-spinner-wrapper {
+      width: 33.3%;
+    }
+  }
+
+  @include e(wrapper) {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    max-height: 190px;
+    vertical-align: top;
+
+    & .c-scrollbar-wrap:not(.c-scrollbar-wrap-hidden-default) {
+      padding-bottom: 15px;
+    }
+
+    @include when(arrow) {
+      box-sizing: border-box;
+      overflow: hidden;
+      text-align: center;
+
+      .c-time-spinner-list {
+        transform: translateY(-32px);
+      }
+
+      .c-time-spinner-item:hover:not(.disabled):not(.active) {
+        background: $hover-background;
+        cursor: default;
+      }
+    }
+  }
+
+  @include e(arrow) {
+    position: absolute;
+    z-index: $z-index-normal;
+    left: 0;
+    width: 100%;
+    font-size: $font-size-small;
+    text-align: center;
+    color: $sub-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+
+    &.arrow-up {
+      top: $content-padding;
+    }
+
+    &.arrow-down {
+      bottom: $content-padding;
+    }
+  }
+
+  @include e(input) {
+    &.c-input {
+      width: 70%;
+
+      .c-input-inner {
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  @include e(list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    &::after,
+    &::before {
+      display: block;
+      width: 100%;
+      height: 72px;
+      content: '';
+    }
+  }
+
+  @include e(item) {
+    height: $component-size;
+    font-size: $font-size-small;
+    line-height: $component-size;
+    color: $content-text-color;
+
+    &:hover:not(.disabled):not(.active) {
+      background: $hover-background;
+      cursor: pointer;
+    }
+
+    &.active:not(.disabled) {
+      font-weight: bold;
+      color: $content-text-color;
+    }
+
+    &.disabled {
+      color: $disabled-text-color;
+      cursor: not-allowed;
+    }
+  }
+}

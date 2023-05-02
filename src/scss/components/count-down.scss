@@ -1,0 +1,31 @@
+.c-count-down {
+  display: flex;
+  align-items: center;
+}
+
+.c-count-down-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3px;
+  border-radius: $border-radius;
+  white-space: nowrap;
+  transform: translateZ(0);
+}
+
+.c-count-down-time {
+  padding: 0;
+  margin: 0;
+}
+
+.c-count-down-colon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2px;
+}
+
+.c-count-down-scale {
+  transform: scale(.9);
+  transform-origin: center center;
+}

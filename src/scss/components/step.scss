@@ -1,0 +1,164 @@
+.c-steps {
+  .c-step-item {
+    position: relative;
+
+    &:not(:last-child) {
+      @include flex-adapter;
+    }
+
+    &:not(:last-child)::before {
+      position: absolute;
+      display: block;
+      width: calc(100% - 1rem);
+      height: .1*$space;
+      margin-top: $component-span;
+      background: $background;
+      content: "";
+    }
+
+    .c-step-header {
+      position: relative;
+
+      .c-step-header-inner {
+        width: $component-size-small;
+        height: $component-size-small;
+        margin-right: $component-span;
+        border: $border-width solid rgba(0, 0, 0, 0.3);
+        border-radius: $component-size-small;
+        font-size: $font-size;
+        line-height: $component-size-small - $border-width * 2;
+        text-align: center;
+        transition: background-color $transition-time ease, border-color $transition-time ease;
+
+        .c-step-header-icon {
+        }
+
+        @include transition(background-color $transition-time ease,border-color $transition-time ease);
+      }
+    }
+
+    .c-step-main {
+      position: relative;
+
+      .c-step-title {
+        display: inline-block;
+        padding-right: $content-padding;
+        margin: 0 0 .5*$space 0;
+        font-weight: 700;
+        font-size: $font-size;
+        line-height: 26px;
+        color: rgba(0, 0, 0, .65);
+        background-color: #fff;
+      }
+
+      .c-step-content {
+        font-size: $font-size;
+        color: rgba(0, 0, 0, .65);
+      }
+    }
+
+    &.finish {
+      &::before {
+        background: $primary-color;
+      }
+
+      .c-step-header {
+        .c-step-header-inner {
+          border-color: $primary-color;
+          color: $primary-color;
+          background-color: #fff;
+
+          .c-step-header-icon {
+            color: $primary-color;
+          }
+        }
+      }
+
+      .c-step-main {
+        .c-step-title {
+          color: rgba(0, 0, 0, .43);
+        }
+
+        .c-step-description {
+          color: rgba(0, 0, 0, .43);
+        }
+      }
+    }
+
+    &.error {
+      .c-step-header {
+        .c-step-header-inner {
+          border: none;
+          border-color: $primary-color;
+          font-size: $component-size-small;
+          color: $error-color;
+
+          .step-header-icon {
+            color: #fff;
+          }
+        }
+      }
+
+      .c-step-main {
+        .c-step-title {
+          color: rgba(0, 0, 0, .65);
+        }
+
+        .c-step-description {
+          color: rgba(0, 0, 0, .65);
+        }
+      }
+    }
+
+    &.process {
+      .c-step-header {
+        .c-step-header-inner {
+          border-color: $primary-color;
+          color: #fff;
+          background-color: $primary-color;
+
+          .c-step-header-icon {
+            color: #fff;
+          }
+        }
+      }
+
+      .c-step-main {
+        .c-step-title {
+          color: rgba(0, 0, 0, .65);
+        }
+
+        .c-step-description {
+          color: rgba(0, 0, 0, .65);
+        }
+      }
+    }
+
+    &.wait {
+      .c-step-header {
+        .c-step-header-inner {
+          border-color: rgba(0, 0, 0, .25);
+          background-color: #fff;
+
+          .c-step-header-icon {
+            color: rgba(0, 0, 0, .25);
+          }
+        }
+      }
+
+      .c-step-main {
+        .c-step-title {
+          color: rgba(0, 0, 0, .43);
+        }
+
+        .c-step-description {
+          color: rgba(0, 0, 0, .43);
+        }
+      }
+    }
+
+    @include flex-horizontal;
+  }
+
+  @include flex-horizontal-align-center;
+}

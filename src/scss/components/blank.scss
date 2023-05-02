@@ -1,0 +1,31 @@
+.c-blank-wrapper {
+  padding: $content-padding-large;
+  overflow: hidden;
+  text-align: center;
+
+  .c-blank-icon {
+    margin-bottom: $component-span;
+    font-size: $component-size-larger;
+    color: $placeholder-text-color;
+  }
+
+  &.default {
+    .c-blank-icon {
+      font-size: $component-size-larger;
+    }
+  }
+
+  &.small {
+    .c-blank-icon {
+      font-size: $component-size;
+    }
+  }
+
+  .c-blank {
+    display: block;
+    padding: 0 $content-padding;
+    font-size: $font-size-small;
+    color: $placeholder-text-color;
+    user-select: none;
+  }
+}

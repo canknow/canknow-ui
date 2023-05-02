@@ -1,0 +1,15 @@
+$scrollbar-thumb-background: rgb(247, 247, 247) !default;
+$scrollbar-track-background: #fff !default;
+$scrollbar-size: $space !default;
+
+$page-header-light-text-color-primary: $primary-text-color !default;
+$page-header-light-text-color-secondary: $regular-text-color !default;
+$page-header-light-text-color-sub-color: $sub-color !default;
+
+$page-header-dark-text-color-primary: white !default;
+$page-header-dark-text-color-secondary: hsla(0,0%,100%,.7) !default;
+$page-header-dark-text-color-sub-color: hsla(0,0%,100%,.7) !default;
+
+$page-header-height: $component-size-largest !default;
+$collapse-sidebar-width: ($component-span + $font-size-large) * 2 + $font-size-large  !default;
+$dark-menu-background-color: #001529 !default;

@@ -1,0 +1,142 @@
+.c-transfer {
+  position: relative;
+  line-height: $line-height-base;
+
+  &-list {
+    position: relative;
+    vertical-align: middle;
+
+    &-with-footer {
+      padding-bottom: $component-size;
+    }
+
+    &-header {
+      flex-shrink: 0;
+      padding: $text-padding $content-padding;
+      border: $border-width solid $border-color;
+      border-bottom: $border-width solid $split-color;
+      border-radius: $border-radius $border-radius 0 0;
+      overflow: hidden;
+      color: $content-text-color;
+      background: $header-background;
+
+      &-title {
+        display: block;
+        cursor: pointer;
+
+        @include flex-adapter;
+      }
+
+      & > span {
+        padding-left: $text-padding;
+      }
+
+      &-count {
+
+      }
+
+      @include flex-horizontal-align-center;
+    }
+
+    &-body {
+      position: relative;
+      padding: $content-padding;
+      border: $border-width solid $border-color;
+      border-top: none;
+      border-radius: 0 0 $border-radius $border-radius;
+      overflow: hidden;
+
+      &-with-search{
+      }
+
+      &-with-footer {
+        border-radius: 0;
+      }
+
+      @include flex-adapter;
+      @include flex-vertical;
+    }
+
+    &-content {
+      overflow: auto;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: $component-span;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &-disabled {
+          color: $disabled-text-color;
+          cursor: not-allowed;
+        }
+
+        & > span {
+          padding-left: 4px;
+        }
+      }
+
+      &-not-found {
+        display: none;
+        text-align: center;
+        color: $disabled-text-color;
+
+        &:only-child {
+          display: block;
+        }
+      }
+
+      @include flex-adapter;
+    }
+
+    &-body-with-search &-content {
+      padding: $text-padding 0 0;
+    }
+
+    &-body-search-wrapper {
+      padding: $text-padding $text-padding 0;
+      margin-bottom: $component-span;
+    }
+
+    &-search {
+      position: relative;
+    }
+
+    &-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: $border-width solid $border-color;
+      border-top: none;
+      border-radius: 0 0 $border-radius $border-radius;
+
+      @include clearfix();
+    }
+
+    @include flex-vertical;
+    @include flex-adapter;
+  }
+
+  &-operation-wrap {
+    display: table;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  &-operation {
+    display: table-cell;
+    padding: 0 $content-padding;
+    overflow: hidden;
+    vertical-align: middle;
+
+    .c-text-button {
+      display: block;
+      margin-left: 0;
+    }
+  }
+
+  @include flex-horizontal;
+}

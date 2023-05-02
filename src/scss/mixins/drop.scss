@@ -1,0 +1,11 @@
+@mixin drop {
+  position: absolute;
+  z-index: $z-index-dropdown;
+  box-sizing: border-box;
+  margin: $text-padding 0;
+  border-radius: $border-radius;
+  background-color: $popup-background;
+  border: $border-width solid $border-color;
+
+  @include shadow(3, 'down');
+}

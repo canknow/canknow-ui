@@ -1,0 +1,549 @@
+@include b(tabs) {
+  @include e(header) {
+    padding: 0;
+    position: relative;
+    margin: 0 0 $content-padding;
+  }
+  @include e(active-bar) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: $primary-color;
+    z-index: 1;
+    transition: transform $transition-time cubic-bezier(.645, .045, .355, 1);
+    list-style: none;
+  }
+  @include e(new-tab) {
+    position: absolute;
+    right: $content-padding;
+    top: 50%;
+    transform: translateY(-50%);
+    border: $border-width solid $border-color;
+    height: $component-size-small;
+    width: $component-size-small;
+    line-height: $component-size-small;
+    border-radius: $border-radius;
+    text-align: center;
+    font-size: $font-size-small;
+    color: $icon-color;
+    cursor: pointer;
+    transition: all $transition-time;
+
+    .c-icon-add {
+      transform: scale(0.8, 0.8);
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  @include e(nav-wrap) {
+    overflow: hidden;
+    margin-bottom: -1px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $split-color;
+      z-index: 1;
+    }
+
+    @include when(scrollable) {
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+  }
+  @include e(nav-scroll) {
+    overflow: hidden;
+  }
+  @include e((nav-next, nav-prev)) {
+    position: absolute;
+    cursor: pointer;
+    line-height: $component-size-large;
+    font-size: $font-size-small;
+    color: $secondary-text-color;
+  }
+  @include e(nav-next) {
+    right: 0;
+  }
+  @include e(nav-prev) {
+    left: 0;
+  }
+  @include e(nav) {
+    white-space: nowrap;
+    position: relative;
+    transition: transform $transition-time;
+    float: left;
+    z-index: 2;
+
+    @include when(stretch) {
+      min-width: 100%;
+      display: flex;
+      & > * {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  }
+  @include e(item) {
+    padding: $content-padding $content-padding-large;
+    box-sizing: border-box;
+    display: inline-block;
+    list-style: none;
+    font-size: $font-size;
+    font-weight: 500;
+    color: $primary-text-color;
+    position: relative;
+
+    &:focus,
+    &:focus:active {
+      outline: none;
+    }
+
+    &:focus.active.focus:not(:active) {
+      box-shadow: 0 0 2px 2px $primary-color inset;
+      border-radius: $border-radius;
+    }
+
+    & .c-clear-button {
+      margin-left: $text-span;
+    }
+
+    @include when(active) {
+      color: $primary-color;
+    }
+
+    &:hover {
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    @include when(disabled) {
+      color: $disabled-text-color;
+      cursor: default;
+    }
+  }
+  @include e(content) {
+    overflow: hidden;
+    position: relative;
+  }
+  @include m(card) {
+    > .c-tabs-header {
+      border-bottom: $border-width solid $split-color;
+    }
+    > .c-tabs-header .c-tabs-nav-wrap::after {
+      content: none;
+    }
+    > .c-tabs-header .c-tabs-nav {
+      border: $border-width solid $split-color;
+      border-bottom: none;
+      border-radius: $border-radius $border-radius 0 0;
+      box-sizing: border-box;
+    }
+    > .c-tabs-header .c-tabs-active-bar {
+      display: none;
+    }
+    > .c-tabs-header .c-tabs-item {
+      border-bottom: $border-width solid transparent;
+      border-left: $border-width solid $split-color;
+      transition: color $transition-time cubic-bezier(.645, .045, .355, 1), padding $transition-time cubic-bezier(.645, .045, .355, 1);
+
+      &:first-child {
+        border-left: none;
+      }
+      &.active {
+        border-bottom-color: white;
+      }
+    }
+  }
+  @include m(border-card) {
+    border: $border-width solid $border-color;
+
+    > .c-tabs-content {
+      padding: $content-padding;
+    }
+
+    > .c-tabs-header {
+      background-color: $background;
+      border-bottom: $border-width solid $border-color;
+      margin: 0;
+    }
+
+    > .c-tabs-header .c-tabs-nav-wrap::after {
+      content: none;
+    }
+
+    > .c-tabs-header .c-tabs-item {
+      transition: all $transition-time cubic-bezier(.645, .045, .355, 1);
+      border: $border-width solid transparent;
+      margin-top: -1px;
+      color: $secondary-text-color;
+
+      &:first-child {
+        margin-left: -1px;
+      }
+
+      & + .c-tabs-item {
+        margin-left: -1px;
+      }
+
+      &.active {
+        color: $primary-color;
+        font-weight: bold;
+        background-color: white;
+        border-right-color: $border-color;
+        border-left-color: $border-color;
+      }
+      &:not(.disabled):hover {
+        color: $primary-color;
+      }
+      &.disabled {
+        color: $disabled-text-color;
+      }
+    }
+
+    > .c-tabs-header .scrollable .c-tabs-item:first-child {
+      margin-left: 0;
+    }
+  }
+  @include m((top, bottom)) {
+    .c-tabs-item.top:nth-child(2),
+    .c-tabs-item.bottom:nth-child(2) {
+      padding-left: 0;
+    }
+    .c-tabs-item.top:last-child,
+    .c-tabs-item.bottom:last-child {
+      padding-right: 0;
+    }
+
+    &.border-card,
+    &.card,
+    .c-tabs-left,
+    .c-tabs-right {
+      > .c-tabs-header {
+        .c-tabs-item:nth-child(2) {
+          padding-left: $content-padding-large;
+        }
+        .c-tabs-item:last-child {
+          padding-right: $content-padding-large;
+        }
+      }
+    }
+  }
+  @include m(bottom) {
+    .c-tabs-header.bottom {
+      margin-bottom: 0;
+      margin-top: $component-span;
+    }
+    &.border-card {
+      .c-tabs-header.bottom {
+        border-bottom: 0;
+        border-top: $border-width solid $border-color;
+      }
+      .c-tabs-nav-wrap.bottom {
+        margin-top: -1px;
+        margin-bottom: 0;
+      }
+      .c-tabs-item.bottom:not(.active) {
+        border: $border-width solid transparent;
+      }
+      .c-tabs-item.bottom {
+        margin: 0 -1px -1px -1px;
+      }
+    }
+  }
+  @include m((left, right)) {
+    overflow: hidden;
+
+    .c-tabs-header.left,
+    .c-tabs-header.right,
+    .c-tabs-nav-wrap.left,
+    .c-tabs-nav-wrap.right,
+    .c-tabs-nav-scroll {
+      height: 100%;
+    }
+
+    .c-tabs-active-bar.left,
+    .c-tabs-active-bar.right {
+      top: 0;
+      bottom: auto;
+      width: 2px;
+      height: auto;
+    }
+
+    .c-tabs-nav-wrap.left,
+    .c-tabs-nav-wrap.right {
+      margin-bottom: 0;
+
+      > .c-tabs-nav-prev,
+      > .c-tabs-nav-next {
+        height: $component-size;
+        line-height: $component-size;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+          transform: rotateZ(90deg);
+        }
+      }
+      > .c-tabs-nav-prev {
+        left: auto;
+        top: 0;
+      }
+      > .c-tabs-nav-next {
+        right: auto;
+        bottom: 0;
+      }
+
+      &.scrollable {
+        padding: 30px 0;
+      }
+
+      &::after {
+        height: 100%;
+        width: 2px;
+        bottom: auto;
+        top: 0;
+      }
+    }
+
+    .c-tabs-nav.left,
+    .c-tabs-nav.right {
+      float: none;
+    }
+    .c-tabs-item.left,
+    .c-tabs-item.right {
+      display: block;
+    }
+  }
+
+  @include m(left) {
+    .c-tabs-header.left {
+      float: left;
+      margin-bottom: 0;
+      margin-right: $component-span;
+    }
+    .c-tabs-nav-wrap.left {
+      margin-right: -1px;
+
+      &::after {
+        left: auto;
+        right: 0;
+      }
+    }
+    .c-tabs-active-bar.left {
+      right: 0;
+      left: auto;
+    }
+    .c-tabs-item.left {
+      text-align: right;
+    }
+
+    &.card {
+      .c-tabs-active-bar.left {
+        display: none;
+      }
+      .c-tabs-item.left {
+        border-left: none;
+        border-right: $border-width solid $border-color;
+        border-bottom: none;
+        border-top: $border-width solid $border-color;
+        text-align: left;
+      }
+      .c-tabs-item.left:first-child {
+        border-right: $border-width solid $border-color;
+        border-top: none;
+      }
+      .c-tabs-item.left.active {
+        border: $border-width solid $border-color;
+        border-right-color: #fff;
+        border-left: none;
+        border-bottom: none;
+
+        &:first-child {
+          border-top: none;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .c-tabs-nav {
+        border-radius: $border-radius 0 0 $border-radius;
+        border-bottom: $border-width solid $border-color;
+        border-right: none;
+      }
+
+      .c-tabs-new-tab {
+        float: none;
+      }
+    }
+
+    &.border-card {
+      .c-tabs-header.left {
+        border-right: $border-radius solid $border-color;
+      }
+      .c-tabs-item.left {
+        border: $border-radius solid transparent;
+        margin: -1px 0 -1px -1px;
+
+        &.active {
+          border-color: transparent;
+          border-top-color: $border-color;
+          border-bottom-color: $border-color;
+        }
+      }
+    }
+  }
+  @include m(right) {
+    .c-tabs-header.right {
+      float: right;
+      margin-bottom: 0;
+      margin-left: $component-span;
+    }
+
+    .c-tabs-nav-wrap.right {
+      margin-left: -1px;
+
+      &::after {
+        left: 0;
+        right: auto;
+      }
+    }
+
+    .c-tabs-active-bar.right {
+      left: 0;
+    }
+
+    &.card {
+      .c-tabs-active-bar.right {
+        display: none;
+      }
+      .c-tabs-item.right {
+        border-bottom: none;
+        border-top: $border-width solid $border-color;
+      }
+      .c-tabs-item.right:first-child {
+        border-left: $border-width solid $border-color;
+        border-top: none;
+      }
+      .c-tabs-item.right.active {
+        border: $border-width solid $border-color;
+        border-left-color: #fff;
+        border-right: none;
+        border-bottom: none;
+
+        &:first-child {
+          border-top: none;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      .c-tabs-nav {
+        border-radius: 0 $border-radius $border-radius 0;
+        border-bottom: $border-width solid $border-color;
+        border-left: none;
+      }
+    }
+    &.card {
+      .c-tabs-header.right {
+        border-left: $border-width solid $border-color;
+      }
+      .c-tabs-item.right {
+        border: $border-width solid transparent;
+        margin: -1px -1px -1px 0;
+
+        &.active {
+          border-color: transparent;
+          border-top-color: $border-color;
+          border-bottom-color: $border-color;
+        }
+      }
+    }
+  }
+}
+
+.slideInRight-transition,
+.slideInLeft-transition {
+  display: inline-block;
+}
+.slideInRight-enter {
+  animation: slideInRight-enter $transition-time;
+}
+.slideInRight-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: slideInRight-leave $transition-time;
+}
+.slideInLeft-enter {
+  animation: slideInLeft-enter $transition-time;
+}
+.slideInLeft-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: slideInLeft-leave $transition-time;
+}
+
+@keyframes slideInRight-enter {
+  0% {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform-origin: 0 0;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight-leave {
+  0% {
+    transform-origin: 0 0;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform-origin: 0 0;
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes slideInLeft-enter {
+  0% {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateX(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform-origin: 0 0;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft-leave {
+  0% {
+    transform-origin: 0 0;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform-origin: 0 0;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}

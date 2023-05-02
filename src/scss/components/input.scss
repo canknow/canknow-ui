@@ -1,0 +1,224 @@
+.c-input {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+
+  &.block {
+    width: 100%;
+
+    @include flex-horizontal-align-center;
+  }
+
+  &.disabled {
+    .c-input-input {
+      cursor: not-allowed;
+    }
+  }
+
+  &.line {
+    .c-input-input {
+      border-top-color: transparent !important;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+    }
+  }
+
+  .c-input-label {
+    padding: 0 $text-padding;
+    line-height: $component-size;
+    background-color: $border-color;
+    user-select: none;
+  }
+
+  & > .c-input-input {
+    width: 100%;
+  }
+
+  &.loading {
+    .input-base {
+      padding-right: $component-size;
+    }
+
+    &::after {
+      border-color: transparent;
+      animation: loading .6s linear;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &.radius {
+    .c-input-input {
+      border-radius: $border-radius;
+    }
+  }
+
+  &.c-input-group {
+    .c-input-pend {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      &:not(.custom) {
+        white-space: nowrap;
+        padding: 0 $content-padding;
+        background-color: $component-background;
+        border: $border-width solid $border-color;
+        border-radius: $border-radius;
+      }
+
+      &.c-input-prepend {
+      }
+
+      &.c-input-append {
+        margin-left: -1px;
+      }
+    }
+
+    .c-input-input {
+      flex: 1;
+
+      &:focus {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  &.prefix {
+    input {
+      padding-left: $font-size + $content-padding + $text-padding;
+    }
+  }
+
+  &.suffix {
+    input {
+      padding-right: $font-size + $content-padding + $text-padding;
+    }
+  }
+
+  .c-input-fix {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $component-size;
+    line-height: $component-size;
+    text-align: center;
+    color: $sub-color;
+    transform: translateY(-50%);
+
+    &-inner {
+      pointer-events: all;
+    }
+
+    &.c-input-prefix {
+      left: 0;
+      padding-left: $content-padding;
+    }
+
+    &.c-input-suffix {
+      right: 0;
+      padding-right: $content-padding;
+    }
+  }
+
+  &.c-input-textarea {
+    .c-input-fix {
+      top: initial;
+      bottom: 0;
+      transform: translateY(0);
+    }
+  }
+
+  .c-input-clear {
+    font-size: $font-size-large;
+    cursor: pointer;
+  }
+
+  .c-input-count {
+    padding: 0 $text-padding;
+    font-size: $font-size-small;
+    color: $property-text-color;
+    user-select: none;
+  }
+
+  @each $sizeName, $size in $sizes {
+    &.#{$sizeName} {
+      &.circle {
+        .c-input-input {
+          border-radius: map-get($size, 'size') / 2;
+        }
+
+        .c-input-pend {
+          border-radius: map-get($size, 'size') / 2;
+        }
+
+        &.c-input-group {
+          &.prepend {
+            .c-input-input {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+            }
+
+            .c-input-prepend {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+
+            .c-text-button {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+
+            .c-select {
+              .c-input-input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+              }
+            }
+          }
+          &.append {
+            .c-input-input {
+              border-top-right-radius: 0;
+              border-bottom-right-radius: 0;
+            }
+
+            .c-input-append {
+              border-top-left-radius: 0;
+              border-bottom-left-radius: 0;
+            }
+
+            .c-text-button {
+              border-bottom-left-radius: 0;
+              border-top-left-radius: 0;
+            }
+
+            .c-select {
+              .c-input-input {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.c-input-group {
+        .c-input-pend {
+          height: map-get($size, 'size');
+        }
+      }
+
+      .c-input-input {
+        font-size: map-get($size, 'fontSize');
+      }
+
+      .c-input-input:not(textarea) {
+        height: map-get($size, 'size');
+        line-height: map-get($size, 'size') - 2 * $border-width;
+      }
+    }
+  }
+}

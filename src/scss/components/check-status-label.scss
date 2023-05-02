@@ -1,0 +1,25 @@
+.check-status-label {
+  display: inline-block;
+  height: $component-size;
+  line-height: $component-size;
+
+  .check-status {
+    display: inline-block;
+    width: $component-size-small;
+    height: $component-size-small;
+    vertical-align: middle;
+    background-size: 100% 100%;
+  }
+
+  &.checked {
+    .check-status{
+    }
+  }
+
+  .note {
+    display: inline-block;
+    vertical-align: middle;
+
+    @include user-select-none;
+  }
+}

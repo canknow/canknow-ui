@@ -1,0 +1,372 @@
+@include b(color-predefine) {
+  display: flex;
+  width: 280px;
+  margin-top: 8px;
+  font-size: $font-size;
+
+  @include e(colors) {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+
+  @include e(color-selector) {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 8px 8px;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &:nth-child(10n + 1) {
+      margin-left: 0;
+    }
+
+    &.selected {
+      box-shadow: 0 0 3px 2px $primary-color;
+    }
+
+    > div {
+      display: flex;
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    @include when(alpha) {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+    }
+  }
+}
+
+@include b(color-hue-slider) {
+  position: relative;
+  box-sizing: border-box;
+  width: 280px;
+  height: $font-size;
+  padding: 0 2px;
+  background-color: #f00;
+
+  @include e(bar) {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(
+                    to right,
+                    #f00 0%,
+                    #ff0 17%,
+                    #0f0 33%,
+                    #0ff 50%,
+                    #00f 67%,
+                    #f0f 83%,
+                    #f00 100%
+    );
+  }
+
+  @include e(thumb) {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 4px;
+    height: 100%;
+    border: $border-width solid #f0f0f0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    cursor: pointer;
+  }
+
+  @include when(vertical) {
+    width: 12px;
+    height: 180px;
+    padding: 2px 0;
+
+    .c-color-hue-slider-bar {
+      background: linear-gradient(
+                      to bottom,
+                      #f00 0%,
+                      #ff0 17%,
+                      #0f0 33%,
+                      #0ff 50%,
+                      #00f 67%,
+                      #f0f 83%,
+                      #f00 100%
+      );
+    }
+
+    .c-color-hue-slider-thumb {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+  }
+}
+
+@include b(color-sv-panel) {
+  position: relative;
+  width: 280px;
+  height: 180px;
+
+  @include e(('white', 'black')) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include e('white') {
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+
+  @include e('black') {
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+  }
+
+  @include e(cursor) {
+    position: absolute;
+
+    > div {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, .3), 0 0 1px 2px rgba(0, 0, 0, .4);
+      transform: translate(-2px, -2px);
+      cursor: head;
+    }
+  }
+}
+
+@include b(color-alpha-slider) {
+  position: relative;
+  box-sizing: border-box;
+  width: 280px;
+  height: $font-size;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+
+  @include e(bar) {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  @include e(thumb) {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 4px;
+    height: 100%;
+    border: $border-width solid #f0f0f0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+
+  @include when(vertical) {
+    width: 20px;
+    height: 180px;
+
+    .c-color-alpha-slider-bar {
+      background: linear-gradient(
+                      to bottom,
+                      rgba(255, 255, 255, 0) 0%,
+                      rgba(255, 255, 255, 1) 100%
+      );
+    }
+
+    .c-color-alpha-slider-thumb {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+    }
+  }
+}
+
+@include b(color-dropdown) {
+  width: 300px;
+
+  @include e(main-wrapper) {
+    margin-bottom: 6px;
+
+    &::after {
+      clear: both;
+      display: table;
+      content: "";
+    }
+  }
+
+  @include e(value) {
+    font-size: $font-size;
+    color: black;
+  }
+}
+
+@include b(color-picker) {
+  position: relative;
+  display: inline-flex;
+  height: $component-size;
+  line-height: normal;
+
+  @include when(block) {
+    display: flex;
+  }
+
+  @include when(disabled) {
+    .color-picker-trigger {
+      cursor: not-allowed;
+    }
+  }
+
+  @include m(large) {
+    height: $component-size-large;
+
+    .c-color-picker-trigger {
+      width: $component-size-large;
+      height: $component-size-large;
+    }
+
+    .c-color-picker-mask {
+      width: $component-size-large - 2 * $border-width;
+      height: $component-size-large - 2 * $border-width;
+    }
+  }
+
+  @include m(medium) {
+    height: $component-size;
+
+    .c-color-picker-trigger {
+      width: $component-size;
+      height: $component-size;
+    }
+
+    .c-color-picker-mask {
+      width: $component-size - 2 * $border-width;
+      height: $component-size - 2 * $border-width;
+    }
+  }
+
+  @include m(small) {
+    height: $component-size-small;
+
+    .c-color-picker-trigger {
+      width: $component-size-small;
+      height: $component-size-small;
+    }
+
+    .c-color-picker-mask {
+      width: $component-size-small - 2 * $border-width;
+      height: $component-size-small - 2 * $border-width;
+    }
+
+    .c-color-picker-icon,
+    .c-color-picker-empty {
+      transform: translate3d(-50%, -50%, 0) scale(0.8);
+    }
+  }
+
+  @include m(mini) {
+    height: $component-size-smaller;
+
+    .c-color-picker-trigger {
+      width: $component-size-smaller;
+      height: $component-size-smaller;
+    }
+
+    .c-color-picker-mask {
+      width: $component-size-smaller - 2 * $border-width;
+      height: $component-size-smaller - 2 * $border-width;
+    }
+
+    .c-color-picker-icon,
+    .c-color-picker-empty {
+      transform: translate3d(-50%, -50%, 0) scale(.8);
+    }
+  }
+
+  @include e(mask) {
+    position: absolute;
+    z-index: 1;
+    top: 1px;
+    left: 1px;
+    width: $component-size - 2 * $border-width;
+    height: $component-size - 2 * $border-width;
+    border-radius: $border-radius;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: not-allowed;
+  }
+
+  @include e(trigger) {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: $component-size;
+    height: $component-size;
+    padding: 2px;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    font-size: 0;
+    cursor: pointer;
+  }
+
+  @include e(color) {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: $border-width solid $sub-color;
+    border-radius: $border-radius;
+    text-align: center;
+
+    @include when(alpha) {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+    }
+  }
+
+  @include e(color-inner) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include e(empty) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: $font-size-small;
+    color: $sub-color;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  @include e(icon) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    width: 100%;
+    font-size: $font-size-small;
+    text-align: center;
+    color: white;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  @include e(panel) {
+    position: absolute;
+    z-index: 10;
+    box-sizing: content-box;
+    padding: $text-padding;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    background-color: $popup-background;
+
+    @include shadow(3, 'down');
+  }
+}

@@ -1,0 +1,148 @@
+$descriptions-default-padding: $content-padding $content-padding;
+$descriptions-middle-padding: $text-padding $content-padding;
+$descriptions-small-padding: $text-padding $content-padding;
+
+.c-descriptions {
+  &-title {
+    margin-bottom: $component-span;
+    font-weight: bold;
+    color: $title-text-color;
+  }
+
+  &-view {
+    width: 100%;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+    }
+  }
+
+  &-row {
+    > th,
+    > td {
+      padding-bottom: $content-padding;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-item-container {
+    display: flex;
+  }
+
+  &-item-label {
+    font-weight: normal;
+    text-align: left;
+    color: $paragraph-text-color;
+    @include text-ellipsis;
+
+    &::after {
+      position: relative;
+      top: -0.5px;
+      margin: 0 8px 0 2px;
+      content: ':';
+    }
+  }
+
+  &-item-colon {
+    &::after {
+      content: ':';
+    }
+  }
+
+  &-item-no-label {
+    &::after {
+      margin: 0;
+      content: '';
+    }
+  }
+
+  &-item-content {
+    display: table-cell;
+    line-height: $line-height-base;
+    color: $paragraph-text-color;
+  }
+
+  &-item {
+    padding-bottom: 0;
+    vertical-align: top;
+
+    > span {
+      display: inline-block;
+    }
+  }
+
+  &.medium {
+    .c-descriptions-row {
+      > th,
+      > td {
+        padding-bottom: $content-padding;
+      }
+    }
+  }
+
+  &.small {
+    .c-descriptions-row-row {
+      > th,
+      > td {
+        padding-bottom: $content-padding;
+      }
+    }
+  }
+
+  &.bordered {
+    .c-descriptions-view {
+      border: $border-width solid $border-color;
+
+      > table {
+        table-layout: auto;
+      }
+    }
+
+    .c-descriptions-item-label,
+    .c-descriptions-item-content {
+      padding: $descriptions-default-padding;
+      border-right: $border-width solid $border-color;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .c-descriptions-item-label {
+      background-color: $component-background;
+      color: $primary-text-color;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .c-descriptions-row {
+      border-bottom: $border-width solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &.c-descriptions-row-middle {
+      .c-descriptions-row-item-label,
+      .c-descriptions-row-item-content {
+        padding: $descriptions-middle-padding;
+      }
+    }
+
+    &.c-descriptions-row-small {
+      .c-descriptions-row-item-label,
+      .c-descriptions-row-item-content {
+        padding: $descriptions-small-padding;
+      }
+    }
+  }
+}

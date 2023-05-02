@@ -1,0 +1,24 @@
+.c-key-value-label {
+  display: inline-flex;
+  align-items: center;
+  border-radius: $border-radius;
+  overflow: hidden;
+  vertical-align: middle;
+  color: #fff;
+
+  .c-key-value-label-key {
+    display: block;
+    padding: 0 $text-padding;
+    background: rgb(85, 85, 85);
+  }
+
+  .c-key-value-label-value {
+    display: block;
+    padding: 0 $text-padding;
+    background: rgb(71, 193, 25);
+  }
+
+  + .c-key-value-label {
+    margin-left: $text-span;
+  }
+}

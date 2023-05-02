@@ -1,0 +1,34 @@
+.c-statistic-block {
+  .c-statistic-item {
+    float: left;
+    display: block;
+    width: 50%;
+    padding: $content-padding 0;
+    text-align: center;
+    cursor: pointer;
+
+    .count {
+      display: block;
+      margin-bottom: $component-span;
+      font-weight: normal;
+      font-size: $font-size-largest;
+      color: $title-text-color;
+      cursor: pointer;
+
+      &.price {
+        color: $price-color;
+      }
+    }
+
+    .name {
+      display: block;
+      font-size: $font-size-small;
+      color: $secondary-text-color;
+      cursor: pointer;
+
+      @include user-select-none;
+    }
+  }
+
+  @include clearfix;
+}

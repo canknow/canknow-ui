@@ -1,0 +1,111 @@
+.c-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .c-pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: $component-span;
+
+    li {
+      margin-right: $component-span;
+
+      &.c-pagination-total {
+        font-size: $font-size-small;
+        color: $regular-text-color;
+      }
+
+      a {
+        display: block;
+        min-width: $component-size;
+        height: $component-size;
+        border: $border-width solid $border-color;
+        border-radius: $border-radius;
+        font-size: $font-size-small;
+        line-height: $component-size -(2*$border-width);
+        text-align: center;
+        color: $regular-text-color;
+        background-color: transparent;
+        cursor: pointer;
+
+        @include user-select-none;
+        @include transition($transition-time);
+      }
+
+      &.current {
+        a,
+        a:hover,
+        a:focus,
+        a:focus {
+          z-index: 2;
+          border-color: $primary-color !important;
+          color: $primary-color !important;
+          cursor: default;
+        }
+      }
+
+      &:not([disabled]) > a:hover,
+      &:not([disabled]) > a:focus {
+        border: $border-width solid rgba(0, 0, 0, .3);
+      }
+
+      &.disabled > a,
+      &.disabled > a:hover,
+      &.disabled > a:focus {
+        border-color: $disabled-border-color;
+        color: $disabled-text-color;
+        cursor: not-allowed;
+
+        @include user-select-none;
+      }
+
+      .icon {
+        font-size: $font-size-mini;
+      }
+
+      @include user-select-none;
+    }
+
+    @include list-un-styled;
+    @include user-select-none;
+  }
+
+  .select {
+    .c-input {
+      width: 10 * $space;
+    }
+  }
+
+  .c-pagination-options {
+    margin-bottom: $component-span;
+    display: flex;
+    align-items: center;
+
+    .c-pagination-options-sizer {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .c-pagination-options-elevator {
+      padding: 0 $text-padding;
+      font-size: $font-size-small;
+      color: $regular-text-color;
+    }
+  }
+
+  .c-pagination-editor {
+    width: 6 * $space;
+    border-radius: $border-radius;
+  }
+}
+
+.c-pagination-container {
+  padding: $component-span;
+  text-align: center;
+
+  .c-pagination-list {
+    margin-bottom: 0;
+  }
+}

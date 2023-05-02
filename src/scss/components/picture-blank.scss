@@ -1,0 +1,18 @@
+.c-picture-blank {
+  padding: 2*$space 0;
+  text-align: center;
+
+  .c-picture-blank-icon {
+    display: block;
+    font-size: $component-size-huger;
+    line-height: 1;
+    color: $placeholder-text-color;
+  }
+
+  .c-picture-blank-text {
+    display: block;
+    color: $property-text-color;
+
+    @include user-select-none;
+  }
+}

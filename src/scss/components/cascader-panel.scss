@@ -1,0 +1,116 @@
+@include b(cascader-panel) {
+  display: flex;
+
+  @include when(bordered) {
+    border: $border-width solid $split-color;
+  }
+}
+
+@include b(cascader-menu) {
+  box-sizing: border-box;
+  min-width: 180px;
+  border-right: $border-width solid $split-color;
+
+  &:last-child {
+    border-right: none;
+
+    .c-cascader-node {
+      padding-right: $content-padding;
+    }
+  }
+
+  @include e(wrap) {
+    height: 204px !important;
+  }
+
+  @include e(list) {
+    position: relative;
+    list-style: none;
+    box-sizing: border-box;
+    min-height: 100%;
+    padding: $text-padding 0;
+    margin: 0;
+  }
+
+  @include e(hover-zone) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  @include e(empty-text) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: $placeholder-text-color;
+    font-size: $font-size-small;
+  }
+}
+
+@include b(cascader-node) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $component-size;
+  padding: 0 $content-padding-large;
+  outline: none;
+  line-height: $component-size;
+
+  &.selectable.active-path {
+
+  }
+
+  &.active-path,
+  &.selectable.checked-path,
+  &.active {
+    color: $primary-color;
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background: $hover-background;
+    }
+  }
+
+  > .c-radio {
+    margin-right: 0;
+
+    .c-radio-label {
+      padding-left: 0;
+    }
+  }
+
+  @include when(disabled) {
+    color: $disabled-text-color;
+    cursor: not-allowed;
+  }
+
+  @include e(prefix) {
+    position: absolute;
+    left: $content-padding;
+  }
+
+  @include e(postfix) {
+    position: absolute;
+    right: $content-padding;
+    font-size: $font-size-mini;
+    color: $placeholder-text-color;
+  }
+
+  @include e(label) {
+    flex: 1;
+    padding: 0 $content-padding;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: $font-size-small;
+  }
+}

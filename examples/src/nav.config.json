@@ -1,0 +1,442 @@
+{
+  "menus": [
+    {
+      "name": "changelog",
+      "path": "/changelog"
+    },
+    {
+      "name": "develop document",
+      "children": [
+        {
+          "path": "/installation",
+          "name": "installation"
+        },
+        {
+          "path": "/quickstart",
+          "name": "quickstart"
+        },
+        {
+          "path": "/i18n",
+          "name": "i18n"
+        },
+        {
+          "path": "/custom-theme",
+          "name": "customTheme"
+        },
+        {
+          "path": "/bem",
+          "name": "bem"
+        },
+        {
+          "path": "/colors",
+          "name": "colors"
+        },
+        {
+          "path": "/border",
+          "name": "border"
+        },
+        {
+          "path": "/layout",
+          "name": "layout"
+        },
+        {
+          "path": "/transition",
+          "name": "transition"
+        },
+        {
+          "path": "/directives",
+          "name": "directives"
+        }
+      ]
+    },
+    {
+      "name": "components",
+      "children": [
+        {
+          "path": "/menu",
+          "name": "menu"
+        },
+        {
+          "path": "/icon",
+          "name": "icon"
+        },
+        {
+          "path": "/typography",
+          "name": "typography"
+        },
+        {
+          "path": "/grid",
+          "name": "grid"
+        },
+        {
+          "path": "/article",
+          "name": "article"
+        },
+        {
+          "path": "/button",
+          "name": "button"
+        },
+        {
+          "path": "/input",
+          "name": "input"
+        },
+        {
+          "path": "/input-number",
+          "name": "inputNumber"
+        },
+        {
+          "path": "/form",
+          "name": "form"
+        },
+        {
+          "path": "/slider",
+          "name": "slider"
+        },
+        {
+          "path": "/select",
+          "name": "select"
+        },
+        {
+          "path": "/datepicker",
+          "name": "datepicker"
+        },
+        {
+          "path": "/switch",
+          "name": "switch"
+        },
+        {
+          "path": "/checkbox",
+          "name": "checkbox"
+        },
+        {
+          "path": "/radio",
+          "name": "radio"
+        },
+        {
+          "path": "/dropdown",
+          "name": "dropdown"
+        },
+        {
+          "path": "/alert",
+          "name": "alert"
+        },
+        {
+          "path": "/message-alert",
+          "name": "messageAlert"
+        },
+        {
+          "path": "/blank",
+          "name": "blank"
+        },
+        {
+          "path": "/picture-blank",
+          "name": "pictureBlank"
+        },
+        {
+          "path": "/table",
+          "name": "table"
+        },
+        {
+          "path": "/pagination",
+          "name": "pagination"
+        },
+        {
+          "path": "/section-title",
+          "name": "sectionTitle"
+        },
+        {
+          "path": "/progress",
+          "name": "progress"
+        },
+        {
+          "path": "/breadcrumb",
+          "name": "breadcrumb"
+        },
+        {
+          "path": "/drawer",
+          "name": "drawer"
+        },
+        {
+          "path": "/uploader",
+          "name": "uploader"
+        },
+        {
+          "path": "/badge",
+          "name": "badge"
+        },
+        {
+          "path": "/tabs",
+          "name": "tabs"
+        },
+        {
+          "path": "/step",
+          "name": "step"
+        },
+        {
+          "path": "/circle",
+          "name": "circle"
+        },
+        {
+          "path": "/online-status",
+          "name": "onlineStatus"
+        },
+        {
+          "path": "/rich-editor",
+          "name": "richEditor"
+        },
+        {
+          "path": "/collapse",
+          "name": "collapse"
+        },
+        {
+          "path": "/loading",
+          "name": "loading"
+        },
+        {
+          "path": "/label",
+          "name": "label"
+        },
+        {
+          "path": "/key-value-label",
+          "name": "keyValueLabel"
+        },
+        {
+          "path": "/tag",
+          "name": "tag"
+        },
+        {
+          "path": "/back-top",
+          "name": "backTop"
+        },
+        {
+          "path": "/transfer",
+          "name": "transfer"
+        },
+        {
+          "path": "/thumbnail",
+          "name": "thumbnail"
+        },
+        {
+          "path": "/media",
+          "name": "media"
+        },
+        {
+          "path": "/info-list",
+          "name": "infoList"
+        },
+        {
+          "path": "/detailed-list",
+          "name": "detailedList"
+        },
+        {
+          "path": "/tooltip",
+          "name": "tooltip"
+        },
+        {
+          "path": "/message",
+          "name": "message"
+        },
+        {
+          "path": "/notification",
+          "name": "notification"
+        },
+        {
+          "path": "/popup",
+          "name": "popup"
+        },
+        {
+          "path": "/modal",
+          "name": "modal"
+        },
+        {
+          "path": "/message-box",
+          "name": "messageBox"
+        },
+        {
+          "path": "/popover",
+          "name": "popover"
+        },
+        {
+          "path": "/portlet",
+          "name": "portlet"
+        },
+        {
+          "path": "/overview",
+          "name": "overview"
+        },
+        {
+          "path": "/tree",
+          "name": "tree"
+        },
+        {
+          "path": "/page-header",
+          "name": "pageHeader"
+        },
+        {
+          "path": "/page-footer",
+          "name": "pageFooter"
+        },
+        {
+          "path": "/trend",
+          "name": "trend"
+        },
+        {
+          "path": "/card",
+          "name": "card"
+        },
+        {
+          "path": "/divider",
+          "name": "divider"
+        },
+        {
+          "path": "/skeleton",
+          "name": "skeleton"
+        },
+        {
+          "path": "/affix",
+          "name": "affix"
+        },
+        {
+          "path": "/rate",
+          "name": "rate"
+        },
+        {
+          "path": "/image",
+          "name": "image"
+        },
+        {
+          "path": "/infinite-scroll",
+          "name": "infiniteScroll"
+        },
+        {
+          "path": "/color-label",
+          "name": "colorLabel"
+        },
+        {
+          "path": "/password-label",
+          "name": "passwordLabel"
+        },
+        {
+          "path": "/text",
+          "name": "text"
+        },
+        {
+          "path": "/timeline",
+          "name": "timeline"
+        },
+        {
+          "path": "/rainbow-text",
+          "name": "rainbowText"
+        },
+        {
+          "path": "/drop",
+          "name": "drop"
+        },
+        {
+          "path": "/link",
+          "name": "link"
+        },
+        {
+          "path": "/spinner",
+          "name": "spinner"
+        },
+        {
+          "path": "/cascader",
+          "name": "cascader"
+        },
+        {
+          "path": "/descriptions",
+          "name": "descriptions"
+        },
+        {
+          "path": "/loading-indicator",
+          "name": "loadingIndicator"
+        },
+        {
+          "path": "/border",
+          "name": "border"
+        },
+        {
+          "path": "/browser",
+          "name": "browser"
+        },
+        {
+          "path": "/container",
+          "name": "container"
+        },
+        {
+          "path": "/numeric-list",
+          "name": "numericList"
+        },
+        {
+          "path": "/log-list",
+          "name": "logList"
+        },
+        {
+          "path": "/avatar",
+          "name": "avatar"
+        },
+        {
+          "path": "/container-close-button",
+          "name": "containerCloseButton"
+        },
+        {
+          "path": "/statistic",
+          "name": "statistic"
+        },
+        {
+          "path": "/space",
+          "name": "space"
+        },
+        {
+          "path": "/list",
+          "name": "list"
+        },
+        {
+          "path": "/ribbon",
+          "name": "ribbon"
+        },
+        {
+          "path": "/clear-button",
+          "name": "clearButton"
+        },
+        {
+          "path": "/swiper",
+          "name": "swiper"
+        },
+        {
+          "path": "/count-down",
+          "name": "countDown"
+        },
+        {
+          "path": "/count-to",
+          "name": "countTo"
+        },
+        {
+          "path": "/empty",
+          "name": "empty"
+        },
+        {
+          "path": "/autocomplete",
+          "name": "autocomplete"
+        },
+        {
+          "path": "/color-picker",
+          "name": "colorPicker"
+        },
+        {
+          "path": "/time-select",
+          "name": "timeSelect"
+        },
+        {
+          "path": "/pop-confirm",
+          "name": "popConfirm"
+        },
+        {
+          "path": "/link",
+          "name": "link"
+        }
+      ]
+    }
+  ]
+}

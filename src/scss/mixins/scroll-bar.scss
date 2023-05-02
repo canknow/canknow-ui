@@ -1,0 +1,29 @@
+@mixin scroll-bar {
+  &::-webkit-scrollbar {
+    z-index: 100000;
+    width: $scrollbar-size;
+
+    &:horizontal {
+      height: $scrollbar-size;
+    }
+
+    &-thumb {
+      width: $scrollbar-size;
+      border-radius: $scrollbar-size;
+      background: $scrollbar-thumb-background;
+    }
+
+    &-corner {
+      background: $scrollbar-track-background;
+    }
+
+    &-track {
+      background: $scrollbar-track-background;
+
+      &-piece {
+        width: $scrollbar-size;
+        background: $scrollbar-track-background;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.document-list,
+.document-list ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.document-list {
+  margin-top: 0;
+
+  li {
+    .title {
+      display: block;
+      padding: $text-padding $content-padding;
+      color: $title-text-color;
+
+      @include user-select-none;
+    }
+
+    .document-group-item {
+      & > .title {
+        font-weight: bold;
+        font-size: $font-size-larger;
+      }
+    }
+
+    .document-item {
+      & > .title {
+        font-weight: normal;
+        font-size: $font-size;
+
+        &.router-link-active {
+          color: $primary-color;
+        }
+      }
+    }
+
+    @include list-un-styled;
+  }
+}

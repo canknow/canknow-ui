@@ -1,0 +1,42 @@
+.c-online-status {
+  position: relative;
+  display: inline-block;
+  min-width: $space-half;
+  min-height: $space-half;
+
+  &.block {
+    display: block;
+  }
+
+  &.online {
+    .c-online-status-dot {
+      background-color: $success-color;
+    }
+  }
+
+  &.offline {
+    .c-online-status-dot {
+      background-color: $error-color;
+    }
+  }
+
+  .c-online-status-dot {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    width: $space;
+    height: $space;
+    border-radius: 50%;
+    background-color: $background;
+    transform-origin: 0 center;
+    transition: $transition-time;
+  }
+
+  &.small {
+    .c-online-status-dot {
+      width: $space-half;
+      height: $space-half;
+    }
+  }
+}

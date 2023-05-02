@@ -1,0 +1,9 @@
+@mixin input-common {
+  display: inline-flex;
+  outline: none;
+  font-size: $font-size-small;
+  line-height: $line-height-base;
+  text-align: left;
+  vertical-align: middle;
+  color: $content-text-color;
+}

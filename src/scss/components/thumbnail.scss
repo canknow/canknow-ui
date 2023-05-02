@@ -1,0 +1,175 @@
+$thumbnail-title-label-color:rgba(254, 182, 62, 1);
+
+.c-thumbnail {
+  &.shadow {
+    @include shadow(2, 'down');
+  }
+
+  &.radius {
+    border-radius: $border-radius;
+    overflow: hidden;
+  }
+
+  &.grid {
+    .c-thumbnail-block {
+      padding: $content-padding;
+
+      .c-thumbnail-title {
+        @include text-ellipsis;
+      }
+    }
+  }
+
+  &.justify-center {
+    text-align: center;
+  }
+
+  &-icon-box {
+    margin-bottom: $component-span;
+    text-align: center;
+
+    .thumbnail-icon {
+      font-size: $component-size-largest;
+    }
+  }
+
+  &-cover-box {
+    overflow: hidden;
+
+    .c-thumbnail-cover {
+      width: 100%;
+    }
+  }
+
+  &-body {
+    padding: $content-padding;
+
+    .c-thumbnail-title {
+      margin-bottom: $component-span;
+      overflow: hidden;
+      font-size: $font-size;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $title-text-color;
+    }
+
+    .c-thumbnail-content {
+      font-size: $font-size-small;
+      color: $secondary-text-color;
+    }
+
+    .tag-list {
+      padding-left: 0;
+      margin-bottom: 0;
+
+      li {
+        display: inline-block;
+        height: $component-size;
+        padding: 0 $text-padding;
+        margin-right: $text-span;
+        border: $border-width solid $border-color;
+        border-radius: $component-size;
+        font-size: $font-size-small;
+        line-height: $component-size -(2*$border-width);
+        text-align: center;
+        color: $content-text-color;
+      }
+
+      @include list-un-styled;
+    }
+
+    & > .c-thumbnail-datetime {
+      display: block;
+      margin-top: $component-span;
+      font-size: $font-size-small;
+      text-align: center;
+      color: $property-text-color;
+    }
+
+    .c-thumbnail-title-block {
+      .c-thumbnail-title-label {
+        padding: 0 $content-padding/4;
+        margin-right: $text-span;
+        border: $border-width solid $thumbnail-title-label-color;
+        border-radius: $border-radius;
+        font-size: $font-size-small;
+        color: $thumbnail-title-label-color;
+      }
+
+      .c-thumbnail-title {
+        margin: 0;
+
+        @include flex-box-adapter;
+      }
+
+      .c-thumbnail-hint-label {
+        .c-thumbnail-hint-icon {
+          margin-right: $text-span;
+        }
+
+        .c-thumbnail-hint-count {
+          vertical-align: middle;
+          color: $important-color;
+        }
+      }
+
+      .c-thumbnail-datetime {
+        font-style: italic;
+        font-size: $font-size-small;
+        text-align: right;
+        color: $secondary-text-color;
+      }
+
+      @include flex-horizontal-box-align-center;
+    }
+  }
+}
+
+.c-thumbnail-list-group {
+  .c-thumbnail-list {
+    width: calc(50% - #{$component-span/2});
+
+    &:nth-child(2n+1) {
+      margin-right: $component-span;
+    }
+  }
+
+  @include flex-horizontal;
+}
+
+.c-thumbnail-list {
+  margin: 0;
+
+  &:not(.long) {
+    flex-wrap: wrap;
+
+    @include flex-horizontal;
+  }
+
+  .c-thumbnail-item {
+    margin-bottom: $component-span;
+  }
+
+  &.span-2 > .c-thumbnail-item {
+    width: calc(50% - #{$component-span}/2);
+
+    &:nth-child(2n+1) {
+      margin-right: $component-span;
+    }
+  }
+
+  &.span-4 > .c-thumbnail-item {
+    width: calc(25% - #{$component-span}*3/4);
+
+    &:not(:nth-child(4n)) {
+      margin-right: $component-span;
+    }
+  }
+
+  .file-selector-list > li:hover .c-thumbnail {
+    background: $background;
+  }
+
+  @include list-un-styled;
+}

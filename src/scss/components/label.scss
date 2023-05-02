@@ -1,0 +1,38 @@
+.c-label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 $text-padding;
+  border: $border-width solid transparent;
+  border-radius: $border-radius-large;
+  font-weight: 100;
+  font-size: 80%;
+  color: #fff;
+  background-color: $secondary-text-color;
+  cursor: pointer;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  & + .c-label {
+    margin-left: $text-span;
+  }
+
+  @each $scene, $color in $base-scene-colors {
+    &.#{$scene} {
+      background: $color;
+
+      &.border {
+        border-color: $color;
+        color: $color;
+        background: transparent;
+      }
+
+      &.fill {
+        color: $color;
+        background: lighten($color, 30%);
+      }
+    }
+  }
+}

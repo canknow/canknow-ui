@@ -1,0 +1,14 @@
+.page-sidebar {
+  &.radius {
+    overflow: hidden;
+  }
+
+  &-wrap {
+    .menu {
+      &.vertical {
+        .menu-item-title {
+        }
+      }
+    }
+  }
+}

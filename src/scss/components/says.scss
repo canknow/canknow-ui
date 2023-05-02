@@ -1,0 +1,62 @@
+.says-list {
+  li {
+    margin-bottom: $component-span;
+
+    &:not(:last-child) {
+      border-right: $border-width solid $border-color;
+    }
+
+    @include flex-adapter;
+  }
+
+  @include list-un-styled;
+  @include flex-vertical;
+}
+
+.says {
+  position: relative;
+  padding: $component-size 5*$space 0 $component-size;
+
+  @include flex-vertical;
+}
+
+.says-content-quote {
+  position: absolute;
+  top: $component-size;
+  left: $component-size;
+  width: $component-size-small;
+  height: $component-size-small;
+  border: 0;
+}
+
+.says-content {
+  display: block;
+  margin-left: $component-size;
+  font-size: 2.2*$space;
+  line-height: 1.5;
+  letter-spacing: .1*$space;
+  color: $content-text-color;
+
+  @include flex-adapter;
+}
+
+@media (max-width: $sm) {
+  .says-list {
+    display: block;
+
+    li {
+      -webkit-box-flex: unset;
+
+      &:not(:last-child) {
+        padding-bottom: $content-padding;
+        margin-bottom: 2*$space;
+        border-bottom: $border-width solid $border-color;
+        border-right: none;
+      }
+    }
+  }
+
+  .says-content {
+    margin-left: 0;
+  }
+}

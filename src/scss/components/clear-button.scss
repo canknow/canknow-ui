@@ -1,0 +1,10 @@
+.c-clear-button {
+  font-size: $font-size-large;
+  color: $sub-color;
+  cursor: pointer;
+
+  &.vertical-center {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

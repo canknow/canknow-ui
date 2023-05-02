@@ -1,0 +1,33 @@
+.additional-data-block {
+  padding: $content-padding;
+  background-color: #fff;
+
+  .additional-data-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      text-align: center;
+
+      @include flex-adapter;
+    }
+
+    .title {
+      display: block;
+      margin-bottom: $icon-text-span;
+      font-weight: normal;
+      font-size: $font-size-small;
+      color: $secondary-text-color;
+    }
+
+    .value {
+      display: block;
+      font-weight: normal;
+      font-size: 1.5*$font-size-small;
+      color: $content-text-color;
+    }
+
+    @include flex-horizontal-align-center;
+  }
+}

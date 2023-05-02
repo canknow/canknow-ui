@@ -1,0 +1,138 @@
+.c-uploader-group {
+  .c-uploader {
+    display: inline-block;
+    width: calc(25% - #{$component-span});
+    margin-right: $component-span / 2;
+    margin-left: $component-span / 2;
+
+    &:first-child {
+      width: calc(25% - #{$component-span / 2});
+      margin-right: $component-span / 2;
+    }
+
+    &:last-child {
+      width: calc(25% - #{$component-span / 2});
+      margin-left: $component-span / 2;
+    }
+  }
+}
+
+.c-uploader {
+  position: relative;
+  display: inline-block;
+
+  &.block {
+    display: block;
+  }
+
+  &.radius {
+    border-radius: $border-radius;
+    overflow: hidden;
+  }
+
+  &-box {
+    position: relative;
+
+    .c-uploader-file-select-block {
+      position: relative;
+      display: block;
+      padding: $content-padding;
+      border: $border-width dashed $border-color;
+      border-radius: $border-radius;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $background;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      .c-uploader-file-icon {
+        display: block;
+        width: $component-size-large;
+        height: $component-size-large;
+        margin: 0 auto $component-span auto;
+        font-size: $component-size-large;
+        line-height: 1;
+        color: $primary-color;
+      }
+
+      .c-uploader-helper {
+        font-size: $font-size-small;
+        color: $regular-text-color;
+      }
+
+      .c-uploader-file-path {
+        margin-bottom: 0;
+        font-size: $font-size-small;
+        color: $regular-text-color;
+
+        @include text-ellipsis;
+      }
+    }
+
+    input[type=file] {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  .c-progress {
+    margin-top: $component-span;
+  }
+}
+
+.c-upload-list {
+  margin: 0;
+
+  &-item {
+
+    .c-upload-list-item-wrapper {
+      padding: $text-padding 0;
+      display: flex;
+      align-items: center;
+
+      .c-upload-list-item-file-info {
+        display: flex;
+        align-items: center;
+
+        .c-upload-list-item-file-preview {
+          margin-right: $text-span;
+        }
+
+        .c-upload-list-item-file-icon {
+          margin-right: $text-span;
+          color: $primary-color;
+        }
+
+        .c-upload-list-item-file-name {
+          font-size: $font-size;
+        }
+      }
+
+      .c-upload-list-item-remove {
+        font-size: $font-size;
+        color: $sub-color;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    &:hover {
+      .c-upload-list-item-remove {
+        visibility: visible;
+      }
+    }
+
+    @include list-un-styled;
+  }
+}

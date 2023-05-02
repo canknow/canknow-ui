@@ -1,0 +1,70 @@
+.c-icon-button {
+  justify-content: center;
+  width: $component-size;
+  height: $component-size;
+  padding: 0;
+  border: $border-width solid transparent;
+  font-size: $component-size -(2*$border-width);
+  line-height: $component-size -(2*$border-width);
+  text-align: center;
+  color: $icon-color;
+  background-image: none;
+  background-color: transparent;
+
+  @extend .base-button;
+
+  &.with-padding {
+    font-size: $font-size-small*1.5 !important;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
+
+  @each $sceneName, $scene in $scenes {
+    &.#{$sceneName} {
+      color: map-get($scene, 'ghostColor');
+
+      &.fill {
+        @include button-variant(
+                        map-get($scene, 'color'),
+                        map-get($scene, 'background'),
+                        map-get($scene, 'border')
+        );
+      }
+
+      &.border {
+        @include border-button-variant(
+                        map-get($scene, 'ghostColor'),
+                        map-get($scene, 'border'),
+                        map-get($scene, 'activeColor'),
+                        map-get($scene, 'activeBackground'),
+                        map-get($scene, 'activeBorderColor')
+        );
+      }
+
+      &.ghost {
+        @include ghost-button-variant(map-get($scene, 'ghostColor'));
+      }
+    }
+  }
+
+  @each $sizeName, $size in $sizes {
+    &.#{$sizeName} {
+      width: map-get($size, 'size');
+      height: map-get($size, 'size');
+      font-size: map-get($size, 'size');
+      line-height: map-get($size, 'size');
+
+      &.ghost,
+      &.border,
+      &.fill {
+        font-size: (map-get($size, 'size')) * .5;
+      }
+
+      &.border {
+        line-height: map-get($size, 'size') - 2 * $border-width;
+      }
+    }
+  }
+}

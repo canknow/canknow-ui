@@ -1,0 +1,7 @@
+$mask-color: hsla(0, 0%, 100%, .9) !default;
+$primary-color: #006eff !default;
+
+@import "~canknow-ui-core/src/scss/variables";
+@import "variables/index";
+
+$font-family: "Helvetica Neue",helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",arial,sans-serif;

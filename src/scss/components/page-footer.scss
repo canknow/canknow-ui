@@ -1,0 +1,19 @@
+.c-page-footer {
+  padding: $space2 $content-padding;
+
+  .c-page-footer-base-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .c-page-footer-base-info-item {
+      font-size: $font-size-small;
+      color: $property-text-color;
+
+      &:not(:first-child) {
+        margin-left: $component-span;
+      }
+    }
+  }
+}

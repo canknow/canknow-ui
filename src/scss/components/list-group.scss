@@ -1,0 +1,20 @@
+.list-group {
+  .item {
+    display: block;
+    padding: $content-padding;
+    border: $border-width solid $border-color;
+    text-decoration: none;
+
+    &:nth-child(n+2) {
+      border-top: none;
+    }
+
+    .heading {
+      color: $title-text-color;
+    }
+
+    .content {
+      color: $content-text-color;
+    }
+  }
+}

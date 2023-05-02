@@ -1,0 +1,79 @@
+.message-fade-enter,
+.message-fade-leave-active {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+
+.c-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: $border-radius-large;
+  overflow: hidden;
+  background-color: $popup-background;
+  transform: translateX(-50%);
+  transition: opacity .3s, transform .4s, top .4s;
+
+  &.info {
+    .c-message-icon {
+      color: $info-color !important;
+    }
+  }
+
+  &.success {
+    .c-message-icon {
+      color: $success-color !important;
+    }
+  }
+
+  &.warning {
+    .c-message-icon {
+      color: $warning-color !important;
+    }
+  }
+
+  &.error {
+    .c-message-icon {
+      color: $error-color !important;
+    }
+  }
+
+  .c-message-close-button {
+    margin-right: $content-padding;
+  }
+
+  .c-message-body {
+    display: inline-flex;
+    align-items: center;
+    padding: $text-padding $content-padding;
+
+    .c-message-icon {
+      display: block;
+      width: $component-size;
+      height: $component-size;
+      margin-right: $component-span;
+      border-radius: 100%;
+      font-size: $component-size;
+      line-height: $component-size;
+      text-align: center;
+      color: $icon-color;
+    }
+
+    .c-message-content {
+      text-align: center;
+      overflow-wrap: break-word;
+      color: $content-text-color;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include user-select-none;
+    }
+  }
+
+  @include shadow(3, 'down');
+}

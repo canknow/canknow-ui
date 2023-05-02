@@ -1,0 +1,39 @@
+.c-rate {
+  display: block;
+  box-sizing: border-box;
+  height: $component-size;
+  margin: 0;
+  line-height: $component-size;
+  color: $star-color;
+  cursor: pointer;
+
+  > span {
+    margin-right: 3px;
+    font-size: 18px;
+    color: $component-background;
+    transition: all $transition-time;
+
+    &:hover > i {
+      transform: scale(1.1);
+      transition: transform $transition-time;
+    }
+
+    &.rate-on {
+      color: $star-color;
+    }
+  }
+
+  &[readonly] {
+    cursor: default;
+    pointer-events: painted;
+
+    & > span:hover > i {
+      transform: none;
+    }
+  }
+
+  > .c-srate-value {
+    font-size: 15px;
+    color: $star-color;
+  }
+}

@@ -1,0 +1,35 @@
+.icon-list {
+  list-style: none;
+  padding: 0;
+  border: solid $border-width $split-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  li {
+    float: left;
+    width: calc(100% / 6);
+    padding: $content-padding;
+    border-bottom: $border-width solid $split-color;
+    font-size: $font-size-small;
+    text-align: center;
+    color: $content-text-color;
+    transition: color $transition-time linear;
+    border-right: $border-width solid $split-color;
+
+    .icon {
+      display: block;
+      margin-bottom: $component-span;
+      font-size: $font-size-largest;
+    }
+
+    .icon-name {
+      display: block;
+
+      @include text-ellipsis;
+    }
+
+    &:hover {
+      color: $important-color;
+    }
+  }
+}

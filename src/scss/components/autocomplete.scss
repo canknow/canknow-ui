@@ -1,0 +1,77 @@
+.c-autocomplete {
+  position: relative;
+  display: inline-flex;
+}
+
+.c-autocomplete-suggestion {
+  margin: $text-padding 0;
+  @include shadow(3, 'down');
+  border-radius: $border-radius;
+  border: $border-width solid $border-color;
+  box-sizing: border-box;
+  background-color: $popup-background;
+
+  &-wrap {
+    max-height: 280px;
+    padding: $content-padding 0;
+    box-sizing: border-box;
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 0 $content-padding;
+    height: $component-size;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+    color: $regular-text-color;
+    font-size: $font-size;
+    list-style: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      background-color: $hover-background;
+    }
+
+    &.highlighted {
+      background-color: $hover-background;
+    }
+
+    &.divider {
+      margin-top: 6px;
+      border-top: $border-width solid $split-color;
+    }
+
+    &.divider:last-child {
+      margin-bottom: -6px;
+    }
+  }
+
+  &.is-loading {
+    li {
+      text-align: center;
+      height: 100px;
+      line-height: 100px;
+      font-size: $font-size-large;
+      color: $sub-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  .icon-loading {
+    @include load-loop();
+  }
+}

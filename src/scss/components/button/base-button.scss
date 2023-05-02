@@ -1,0 +1,50 @@
+.base-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  background-image: none;
+  transition: $transition-time;
+  cursor: pointer;
+  vertical-align: middle;
+
+  &.disabled,
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+
+    span,
+    label {
+      cursor: not-allowed;
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  @include user-select-none;
+}
+
+.text-base-button {
+  height: $component-size;
+  padding: 0 $content-padding;
+  border: $border-width solid transparent;
+
+  &.no-style {
+    padding: 0;
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  @extend .base-button;
+}
+
+.button-block {
+  display: block;
+  height: 100%;
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,94 @@
+@include b(date-picker) {
+  width: 322px;
+
+  &.has-sidebar {
+    width: 438px;
+
+    &.has-time {
+      width: 434px;
+    }
+  }
+
+  &.has-time {
+    .c-picker-panel-body-wrapper {
+      position: relative;
+    }
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  @include e(editor-wrap) {
+    position: relative;
+    display: table-cell;
+    padding: 0 $text-padding;
+  }
+
+  @include e(time-header) {
+    position: relative;
+    display: table;
+    box-sizing: border-box;
+    width: 100%;
+    padding: $text-padding;
+    border-bottom: $border-width solid $datepicker-inner-border-color;
+    font-size: $font-size-small;
+  }
+
+  @include e(header) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-bottom: $border-width solid $split-color;
+    padding: $text-padding 0;
+
+    @include m(bordered) {
+      margin-bottom: 0;
+      border-bottom: $border-color solid $border-color;
+
+      & + .c-picker-panel-content {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @include e(header-label) {
+    font-weight: 500;
+    font-size: $font-size;
+    text-align: center;
+    color: $content-text-color;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: $component-span;
+    }
+
+    &:hover {
+      color: $datepicker-hover-font-color;
+    }
+
+    &.active {
+      color: $datepicker-active-color;
+    }
+  }
+
+  @include e(prev-button) {
+
+  }
+
+  @include e(next-button) {
+
+  }
+
+  @include e(time-wrap) {
+    padding: $content-padding;
+    text-align: center;
+  }
+
+  @include e(time-label) {
+    margin-left: $component-span;
+    line-height: 30px;
+    cursor: pointer;
+  }
+}

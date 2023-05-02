@@ -1,0 +1,83 @@
+.c-overview-list {
+  @include list-un-styled;
+}
+
+.c-overview {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  background: $important-color;
+
+  .c-overview-icon-block {
+    float: left;
+    display: block;
+    width: 8*$space;
+    height: 8*$space;
+    font-size: 4.8*$space;
+    line-height: 8*$space;
+    color: #fff;
+    opacity: .2;
+  }
+
+  .c-overview-details {
+    position: absolute;
+    right: $component-span;
+    padding-top: $component-span;
+
+    .c-overview-detail-label {
+      display: block;
+      font-weight: bold;
+      font-size: $font-size-small;
+      text-align: right;
+      color: #fff;
+      opacity: .8;
+
+      @include user-select-none;
+    }
+
+    .c-overview-detail-value {
+      display: block;
+      margin-bottom: $component-span;
+      font-size: $font-size-huge;
+      text-align: right;
+      color: #fff;
+
+      @include user-select-none;
+    }
+  }
+
+  .c-overview-more {
+    position: relative;
+    clear: both;
+    display: block;
+    padding: 0 $content-padding;
+    font-weight: 300;
+    font-size: $font-size-small;
+    text-align: left;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgba(255, 255, 255, .3);
+    opacity: .7;
+
+    .c-overview-more-text {
+      height: $component-size;
+      line-height: $component-size;
+    }
+
+    .c-overview-more-icon {
+      float: right;
+      display: inline-block;
+      width: $component-size;
+      height: $component-size;
+      font-size: $component-size;
+      line-height: $component-size;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    @include clearfix;
+  }
+
+  @include clearfix;
+}

@@ -1,0 +1,13 @@
+.pre-header {
+  border-bottom: $border-width solid rgb(238, 238, 238);
+  font-weight: 300;
+  line-height: 1.2;
+  color: rgb(97, 107, 118);
+  background: rgb(255, 255, 255);
+
+  a,
+  a:link,
+  a:visited {
+    color: $title-text-color;
+  }
+}

@@ -1,0 +1,98 @@
+.c-rich-editor {
+  border: $border-width solid $border-color;
+
+  &-toolbar {
+    padding: $text-span $content-padding;
+    border-bottom: $border-width solid rgba(0, 0, 0, .05);
+
+    &-item {
+      display: inline-block;
+      margin-right: 3px;
+      vertical-align: middle;
+
+      &.active {
+        & > .icon-button {
+          color: $title-text-color;
+          background-color: $background;
+        }
+      }
+
+      .net-picture-wrapper {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .c-icon-button {
+      text-align: center;
+    }
+  }
+
+  .c-dropdown-wrapper {
+    .c-text-button {
+      background: transparent;
+    }
+  }
+
+  .c-rich-editor-editor-wrapper {
+    display: block;
+    padding: $content-padding;
+    overflow-y: scroll;
+
+    .c-rich-editor-editor {
+      outline: none;
+    }
+
+    @include flex-adapter;
+  }
+
+  pre {
+    padding: $content-padding;
+    background: $background;
+  }
+
+  .previewer {
+    display: block;
+    padding: $content-padding;
+    outline: none;
+    overflow-y: scroll;
+
+    @include flex-adapter;
+  }
+
+  textarea.code {
+    display: block;
+    padding: $content-padding;
+    outline: none;
+    overflow-y: scroll;
+
+    @include flex-adapter;
+  }
+
+  @include flex-vertical;
+
+  @at-root .c-form-item {
+    &.error {
+      .c-form-item-content {
+        &>.c-rich-editor {
+          border-color: $error-color;
+        }
+      }
+    }
+  }
+}
+
+.image-setting-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3px;
+  background: rgba(255, 255, 255, .7);
+
+  & > * {
+    margin-right: 6px;
+
+    @include user-select-none;
+  }
+}

@@ -1,0 +1,38 @@
+.c-statistic {
+  &-title {
+    margin-bottom: $text-span;
+    color: $content-text-color;
+    font-size: $font-size;
+  }
+
+  &-content {
+    color: $title-text-color;
+    font-size: $font-size-largest;
+    font-weight: bold;
+
+    &-value {
+      &-decimal {
+        font-size: $font-size-large;
+      }
+      @each $sceneName, $scene in $scenes {
+        &.#{$sceneName} {
+          color: map-get($scene, 'ghostColor');
+        }
+      }
+    }
+
+    &-prefix,
+    &-suffix {
+      display: inline-block;
+    }
+
+    &-prefix {
+      margin-right: $text-span;
+    }
+
+    &-suffix {
+      margin-left: $text-span;
+      font-size: $font-size-large;
+    }
+  }
+}

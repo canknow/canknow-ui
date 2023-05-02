@@ -1,0 +1,157 @@
+@include b(cascader) {
+  position: relative;
+  display: inline-flex;
+  font-size: $font-size;
+
+  &-dropdown {
+    margin: $text-padding 0;
+
+    @include drop();
+  }
+
+  &:not(.disabled):hover {
+    .input-input {
+      cursor: pointer;
+    }
+  }
+
+  .c-input {
+    cursor: pointer;
+    width: 100%;
+
+    .c-input-input {
+      text-overflow: ellipsis;
+
+      &:focus {
+        border-color: $primary-color;
+      }
+    }
+
+    .icon-arrow-down {
+      font-size: $font-size-mini;
+      transition: transform $transition-time;
+      color: $right-icon-color;
+
+      @include when(reverse) {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    .icon-circle-close:hover {
+
+    }
+
+    @include when(focus) {
+      .c-input-input {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  @include when(block) {
+    display: flex;
+  }
+
+  @include when(disabled) {
+    .c-cascader-label {
+      z-index: #{$z-index-normal + 1};
+      color: $disabled-text-color;
+    }
+  }
+
+  @include e(tags) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    line-height: normal;
+    text-align: left;
+    transform: translateY(-50%);
+
+    .c-tag {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      margin: 2px 0 2px $text-padding;
+      text-overflow: ellipsis;
+
+      &:not(.hit) {
+        border-color: transparent;
+      }
+
+      .c-tag-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .icon-close {
+        flex: none;
+        color: $white-color;
+        background-color: $placeholder-text-color;
+
+        &:hover {
+          background-color: $background;
+        }
+      }
+    }
+  }
+
+  @include e(suggestion-panel) {
+
+  }
+
+  @include e(suggestion-list) {
+    max-height: 204px;
+    padding: 6px 0;
+    margin: 0;
+    font-size: $font-size;
+    text-align: center;
+  }
+
+  @include e(suggestion-item) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 34px;
+    padding: 0 $content-padding;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+
+    }
+
+    &.checked {
+      font-weight: bold;
+    }
+
+    > span {
+      margin-right: $component-span;
+    }
+  }
+
+  @include e(empty-text) {
+    margin: $component-span 0;
+    color: $placeholder-text-color;
+    font-size: $font-size-small;
+  }
+
+  @include e(search-input) {
+    flex: 1;
+    box-sizing: border-box;
+    min-width: 60px;
+    padding: 0;
+    margin-left: $content-padding;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: $placeholder-text-color;
+    }
+  }
+}

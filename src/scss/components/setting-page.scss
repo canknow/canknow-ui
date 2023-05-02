@@ -1,0 +1,16 @@
+.setting-page {
+  position: fixed;
+  z-index: $z-index-fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #fff;
+
+  &.show {
+    @include transform(translateX(0));
+  }
+
+  @include shadow(3, 'down');
+  @include transform(translateX(100%));
+  @include transition(.3s);
+}

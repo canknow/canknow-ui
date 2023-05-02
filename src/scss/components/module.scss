@@ -1,0 +1,35 @@
+.module {
+  .module-header {
+    padding: $content-padding;
+
+    .module-title {
+      margin: 0;
+
+      @include flex-adapter;
+    }
+
+    button {
+      display: block;
+
+      + .module-title {
+        margin-left: $component-span;
+      }
+    }
+
+    @include flex-horizontal-align-center;
+  }
+
+  .module-body {
+    @include flex-adapter;
+  }
+
+  &.vertical-flex-module {
+    .module-body {
+      @include flex-adapter;
+    }
+
+    @include flex-vertical;
+  }
+
+  @include flex-vertical;
+}

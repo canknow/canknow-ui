@@ -1,0 +1,10 @@
+$sizes: (
+        mini: (size: $component-size-smaller, fontSize: $font-size-small, padding: $content-padding-mini),
+        smaller: (size: $component-size-smaller, fontSize: $font-size-small, padding: $content-padding-mini),
+        small: (size: $component-size-small, fontSize: $font-size-small, padding: $content-padding-mini),
+        medium: (size: $component-size, fontSize: $font-size-small, padding: $content-padding-middle),
+        large: (size: $component-size-large, fontSize: $font-size, padding: $content-padding-large),
+        larger: (size: $component-size-larger, fontSize: $font-size, padding: $content-padding-large),
+) !default;
+
+$size-keys: map-keys($sizes);

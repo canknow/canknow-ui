@@ -1,0 +1,33 @@
+$primary-color: #1890ff !default;
+$app-background: rgb(16, 16, 20);
+$border-color: rgba(255, 255, 255, 0.1);
+$split-color: rgba(255, 255, 255, 0.1);
+$popup-background: rgb(72, 72, 78);
+$module-background: rgb(24, 24, 28);
+$component-background: rgb(44, 44, 44);
+$disabled-background: rgb(44, 44, 44);
+$primary-text-color: #ffffff;
+$title-text-color: $primary-text-color;
+$input-text-color: #ffffff;
+$regular-text-color: hsla(0,0%,100%,0.8);
+$content-text-color: $regular-text-color;
+$disabled-text-color: rgba(255, 255, 255, 0.2);
+$placeholder-text-color: rgba(255, 255, 255, 0.2);
+$property-text-color: rgba(255, 255, 255, 0.2);
+
+$dark-menu-background-color: transparent;
+$menu-text-color: $title-text-color;
+$menu-bg: #001529;
+$sidebar-width: 250px;
+
+$menu-color: rgba(255,255,255,.4);
+$menu-item-bg: rgb(17, 18, 25);
+$menu-item-hover-bg: rgba(0,0,0,.2);
+$sub-menu-item-bg: rgb(35, 41, 57);
+
+$th-head-background-color: rgba(38, 38, 42, 1);
+
+$hover-background: rgba(38, 38, 42, 1);
+$highlight-background: rgba(38, 38, 42, 1);
+
+$select-selected-text-color: $title-text-color;

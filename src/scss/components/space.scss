@@ -1,0 +1,13 @@
+.c-space {
+  display: inline-flex;
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &>* {
+    &:not(:last-child) {
+      margin-right: $component-span;
+    }
+  }
+}

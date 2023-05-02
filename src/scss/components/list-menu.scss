@@ -1,0 +1,42 @@
+.list-menu-item {
+  padding: 0 $content-padding;
+  background-color: #fff;
+
+  .list-menu-item-icon {
+    display: block;
+    width: $component-size-small;
+    height: $component-size-small;
+    margin-right: $text-padding;
+    font-size: $font-size-large;
+    line-height: $component-size-small;
+    text-align: center;
+  }
+
+  .list-menu-item-title {
+    display: block;
+    flex: 1;
+    height: $component-size-large;
+    line-height: $component-size-large;
+    color: $content-text-color;
+  }
+
+  .list-menu-item-value {
+    display: block;
+    flex: 1;
+    height: $component-size-large;
+    padding: 0 $content-padding;
+    line-height: $component-size-large;
+    color: $content-text-color;
+  }
+
+  .list-menu-item-pointer{
+
+  }
+
+  @include flex-horizontal-align-center;
+}
+
+.list-menu {
+  list-style: none;
+  padding-left: 0;
+}

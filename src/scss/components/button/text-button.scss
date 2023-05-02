@@ -1,0 +1,139 @@
+.c-text-button {
+  justify-content: center;
+  padding: 0 $content-padding;
+  font-size: $font-size-small;
+  text-align: center;
+  transition: background-color color $transition-time;
+  text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 2px #0000000b;
+
+  & + .c-text-button {
+    margin-left: $component-span;
+  }
+
+  &.small + .c-text-button {
+    margin-left: $text-span;
+  }
+
+  &.shorter {
+    padding: 0 $content-padding-mini;
+  }
+
+  &.short {
+    padding: 0 $content-padding-small;
+  }
+
+  &.long {
+    padding: 0 $content-padding-middle;
+  }
+
+  &.longer {
+    padding: 0 $content-padding-large;
+  }
+
+  &.syncing {
+    .c-button-sync-icon {
+      margin-right: $text-span;
+      font-size: $font-size-large;
+      animation: load-loop 1s linear infinite;
+    }
+  }
+
+  &.is-loading {
+    .c-button-loading-icon {
+      margin-right: $text-span;
+      font-size: $font-size-large;
+      animation: load-loop 1s linear infinite;
+    }
+  }
+
+  &.radius {
+    border-radius: $border-radius;
+  }
+
+  &.circle {
+    border-radius: $component-size;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.block {
+    display: flex;
+    width: 100%;
+  }
+
+  .c-button-label {
+    cursor: pointer;
+  }
+
+  .icon + .c-button-label {
+    margin-left: $icon-text-span;
+  }
+
+  .c-button-label + .icon {
+    margin-right: 0;
+    margin-left: $icon-text-span;
+  }
+
+  @extend .text-base-button;
+
+  @include text-ellipsis;
+
+  @each $sceneName, $scene in $scenes {
+    &.#{$sceneName} {
+      &.text {
+        padding-right: 0;
+        padding-left: 0;
+        border-color: transparent !important;
+        color: map-get($scene, 'ghostColor') !important;
+        background: transparent !important;
+        box-shadow: none;
+      }
+
+      &.default, &.dark, &.light {
+        box-shadow: none;
+      }
+
+      &.border {
+        &.dashed {
+          border-style: dashed;
+        }
+
+        @include border-button-variant(
+                        map-get($scene, 'ghostColor'),
+                        map-get($scene, 'border'),
+                        map-get($scene, 'activeColor'),
+                        map-get($scene, 'activeBackground'),
+                        map-get($scene, 'activeBorderColor')
+        );
+      }
+
+      &.ghost {
+        padding: 0 $component-span / 2;
+        box-shadow: none;
+
+        @include ghost-button-variant(map-get($scene, 'ghostColor'));
+      }
+
+      &.plain {
+        @include plain-button-variant(map-get($scene, 'ghostColor'), map-get($scene, 'border'), map-get($scene, 'activeColor'), map-get($scene, 'activeBackground'), map-get($scene, 'activeBorderColor'));
+      }
+
+      @include button-variant(map-get($scene, 'color'), map-get($scene, 'buttonBackground') or map-get($scene, 'background'), map-get($scene, 'border'), map-get($scene, 'activeColor'), map-get($scene, 'activeBackground'), map-get($scene, 'activeBorderColor'));
+    }
+  }
+
+  @each $sizeName, $size in $sizes {
+    &.#{$sizeName} {
+      height: map-get($size, 'size');
+      padding: 0 map-get($size, 'padding');
+      font-size: map-get($size, 'fontSize');
+
+      &.circle {
+        border-radius: map-get($size, 'size');
+      }
+    }
+  }
+}

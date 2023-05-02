@@ -1,0 +1,19 @@
+.c-divider {
+  position: relative;
+  background-color: $border-color;
+
+  &.horizontal {
+    display: block;
+    width: 100%;
+    height: $border-width;
+  }
+
+  &.vertical {
+    position: relative;
+    display: inline-block;
+    width: $border-width;
+    height: 1*$space;
+    margin: 0 $component-span;
+    vertical-align: middle;
+  }
+}

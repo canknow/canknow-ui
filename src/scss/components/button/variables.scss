@@ -1,0 +1,70 @@
+$base-scenes: (success, info, warning, danger);
+
+$scenes: (
+        default: (
+                color: $content-text-color,
+                ghostColor: $content-text-color,
+                buttonBackground: transparent,
+                background: $component-background,
+                border: $border-color,
+                activeColor: $primary-color,
+                activeBorderColor: $primary-color,
+                activeBackground: transparent
+        ),
+        primary:(
+                color: $white-color,
+                ghostColor: $primary-color,
+                background: $primary-color,
+                border: $primary-color
+        ),
+        secondary: (
+                color:$white-color,
+                ghostColor: $secondary-color,
+                background: $secondary-color,
+                border: $secondary-color
+        ),
+        success:(
+                color:$white-color,
+                ghostColor: $success-color,
+                background: $success-color,
+                border: $success-color
+        ),
+        info: (
+                color:$white-color,
+                ghostColor: $info-color,
+                background: $info-color,
+                border: $info-color
+        ),
+        warning: (
+                color:$white-color,
+                ghostColor: $warning-color,
+                background: $warning-color,
+                border: $warning-color
+        ),
+        danger: (
+                color: $white-color,
+                ghostColor: $error-color,
+                background: $error-color,
+                border: $error-color
+        ),
+        colored: (
+                color:$white-color,
+                ghostColor: $content-text-color,
+                background: transparent,
+                border: transparent
+        ),
+        light: (
+                color:$black-color,
+                ghostColor: $white-color,
+                background: $white-color,
+                border: $white-color,
+                borderactiveColor: $black-color,
+                activeColor: $black-color
+        ),
+        dark: (
+                color:$white-color,
+                ghostColor: $black-color,
+                background: $black-color,
+                border: $black-color
+        ),
+);

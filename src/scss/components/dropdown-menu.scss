@@ -1,0 +1,57 @@
+.c-dropdown-menu {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: $text-padding 0;
+
+  @include drop;
+  @include shadow(3, 'down');
+  @include list-un-styled;
+
+  .c-dropdown-menu-header {
+    padding: $content-padding;
+    margin: 0;
+    font-weight: 300;
+    font-size: $font-size-small;
+    color: $black-color;
+    background-color: $background;
+  }
+
+  .c-dropdown-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0 $content-padding-middle;
+    height: $component-size;
+    font-size: $font-size;
+    color: $primary-text-color;
+    white-space: nowrap;
+    transition: background $transition-time $ease-in-out;
+    cursor: pointer;
+
+    .c-dropdown-menu-item-icon {
+      margin-right: $text-span;
+    }
+
+    &:hover {
+      background: $hover-background;
+    }
+
+    &:not(.disabled):hover,
+    &:focus {
+      background: $hover-background;
+    }
+
+    @include user-select-none;
+
+    @include when(disabled) {
+      color: $disabled-text-color;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    @include m(divided) {
+      position: relative;
+      border-top: $border-width solid $split-color;
+    }
+  }
+}

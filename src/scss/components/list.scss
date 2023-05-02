@@ -1,0 +1,104 @@
+.c-list {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-feature-settings: "tnum","tnum";
+  position: relative;
+
+  &.split {
+    .c-list-item {
+      border-bottom: $border-width solid $split-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.grid {
+    .c-list-item {
+      display: block;
+      max-width: 100%;
+      margin-bottom: $component-span;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &.vertical {
+    .c-list-item {
+      align-items: normal;
+
+      &-meta {
+        margin-bottom: $component-span;
+      }
+      &-actions {
+        margin-top: $component-span;
+        margin-left: auto;
+
+        li {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $content-padding 0;
+
+    &-meta {
+      display: flex;
+      flex: 1;
+      align-items: flex-start;
+      font-size: 0;
+
+      &-avatar {
+        margin-right: $component-span;
+      }
+
+      &-content {
+        flex: 1 0;
+      }
+
+      &-title {
+        margin-bottom: $text-span;
+        color: $title-text-color;
+        font-size: $font-size;
+      }
+
+      &-description {
+        color: $paragraph-text-color;
+        font-size: $font-size;
+      }
+    }
+
+    &-actions {
+      flex: 0 0 auto;
+      margin-left: $component-span-huger;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      li {
+        padding: 0 $content-padding;
+        align-items: center;
+        color: $property-text-color;
+      }
+    }
+
+    &-main {
+      display: block;
+      flex: 1;
+    }
+
+    &-extra {
+      margin-left: $component-span-huger;
+    }
+  }
+}

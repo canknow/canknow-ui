@@ -1,0 +1,59 @@
+.canknow-doc {
+  > table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: $component-span;
+    overflow-x: auto;
+    font-size: $font-size;
+
+    thead {
+      background: $th-head-background-color;
+    }
+
+    th {
+      font-weight: bold;
+      color: $th-head-text-color;
+    }
+
+    th,
+    td {
+      padding: $content-padding;
+      border: $border-width solid $border-color;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      color: $content-text-color;
+    }
+  }
+
+  > ul {
+    margin: $component-span 0;
+    line-height: 2em;
+    color: $content-text-color;
+
+    code {
+      padding: 0 $text-padding;
+      border: $border-width solid $split-color;
+      border-radius: $border-radius;
+      background-color: $background;
+    }
+  }
+
+  > h2,
+  > h3,
+  > h4,
+  > h5 {
+    font-weight: 400;
+    color: $title-text-color;
+  }
+
+  > h2 {
+    font-size: $font-size-huge;
+  }
+
+  > h3 {
+    font-size: $font-size-largest;
+  }
+}

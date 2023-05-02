@@ -1,0 +1,58 @@
+.input-base {
+  border: $border-width solid $border-color;
+  color: $input-text-color;
+  transition: $transition-time;
+  background: transparent;
+
+  &:not(textarea) {
+    height: $component-size;
+    padding: 0 $content-padding;
+    overflow: hidden;
+    line-height: $component-size - 2 * $border-width;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $placeholder-text-color;
+  }
+
+  &[disabled] {
+    background-color: $disabled-background;
+    opacity: 1;
+    color: $disabled-text-color;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  @include input-common;
+}
+
+textarea.input-base {
+  height: auto;
+  padding: $content-padding;
+  overflow-y: auto;
+  resize: vertical;
+
+  &.un-resizable {
+    resize: none;
+  }
+}
+
+select.input-base {
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.static-text {
+  background-color: $disabled-background;
+
+  .placeholder {
+    color: $placeholder-text-color;
+  }
+
+  &.static-text-area {
+    height: auto;
+  }
+}

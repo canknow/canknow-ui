@@ -1,0 +1,15 @@
+.c-back-top {
+  position: fixed;
+  z-index: $z-index-back-top;
+  bottom: $component-span;
+  right: $component-span;
+  width: $component-size-large;
+  height: $component-size-large;
+  border-radius: $component-size-large;
+  line-height: $component-size-large;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+
+  @include shadow(3, 'down');
+}

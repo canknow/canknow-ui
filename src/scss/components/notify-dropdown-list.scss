@@ -1,0 +1,27 @@
+.notify-dropdown-list {
+  li {
+    a {
+      .label {
+        margin-right: $component-span;
+      }
+
+      .notify-title {
+        display: block;
+        overflow: hidden;
+        font-weight: bold;
+        text-overflow: ellipsis;
+
+        @include flex-adapter;
+      }
+
+      @include flex-horizontal-align-center;
+    }
+
+    .time {
+      font-style: italic;
+      font-size: $font-size-small;
+      text-align: right;
+      color: $secondary-text-color;
+    }
+  }
+}

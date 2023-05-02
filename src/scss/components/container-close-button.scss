@@ -1,0 +1,25 @@
+.c-container-close-button {
+  width: $component-size;
+  height: $component-size;
+  border: 0;
+  background: transparent;
+  color: $sub-color;
+  z-index: 1;
+
+  @extend .base-button;
+
+  &.vertical-center {
+    position: absolute;
+    top: 50%;
+    right: $content-padding;
+    transform: translateY(-50%);
+  }
+
+  &-icon {
+    font-size: $font-size-small;
+  }
+
+  &:hover {
+    color: $content-text-color;
+  }
+}

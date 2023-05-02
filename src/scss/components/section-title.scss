@@ -1,0 +1,51 @@
+.c-section-title {
+  padding: 0 $content-padding;
+  line-height: 1;
+
+  .c-section-title-content {
+
+  }
+
+  &::before {
+    display: block;
+    height: 0;
+    margin-right: $component-span;
+    border-bottom: $border-width solid $border-color;
+    content: "";
+
+    @include flex-adapter;
+  }
+
+  &::after {
+    display: block;
+    height: 0;
+    margin-left: $component-span;
+    border-bottom: $border-width solid $border-color;
+    content: "";
+
+    @include flex-adapter;
+  }
+
+  &.center {
+    &::after {
+      @include flex-adapter;
+    }
+  }
+
+  &.right {
+    &::after {
+      flex: none;
+      width: $component-size-small;
+    }
+  }
+
+  &.left {
+    &::before {
+      flex: none;
+      width: $component-size-small;
+    }
+  }
+
+  @include flex-horizontal;
+  @include align-center;
+}

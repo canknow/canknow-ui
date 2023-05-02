@@ -1,0 +1,43 @@
+.c-info-list {
+  &.justify-end {
+    .c-info-item-content {
+      text-align: right;
+    }
+  }
+
+  @include list-un-styled;
+}
+
+.c-info-item {
+  padding: 0 $content-padding;
+  margin-bottom: 0;
+  border-bottom: $border-width solid $split-color;
+
+  &-label {
+    height: $component-size-large;
+    overflow: hidden;
+    font-size: $font-size-small;
+    line-height: $component-size-large;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $content-text-color;
+
+    @include user-select-none;
+  }
+
+  &-content {
+    display: block;
+    flex: 1;
+    font-size: $font-size-small;
+    line-height: $component-size-large;
+    color: $content-text-color;
+
+    .c-input-wrapper {
+      input {
+        border-color: transparent;
+      }
+    }
+  }
+
+  @include flex-horizontal;
+}

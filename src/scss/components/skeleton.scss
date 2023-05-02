@@ -1,0 +1,169 @@
+@-webkit-keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0 50%;
+  }
+}
+
+.c-skeleton {
+  display: table;
+  width: 100%;
+
+  &-content {
+    display: table-cell;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  &-title {
+    width: 100%;
+    height: $font-size-large;
+    margin-top: $component-span;
+    background: $background;
+  }
+
+  &-header {
+    display: table-cell;
+    padding-right: $content-padding;
+    vertical-align: top;
+  }
+
+  &-input {
+    display: inline-block;
+    vertical-align: top;
+    background: $background;
+    width: 100%;
+    height: $component-size;
+
+    &.large {
+      height: $component-size-large;
+    }
+
+    &.medium {
+      height: $component-size;
+    }
+
+    &.small {
+      height: $component-size-small;
+    }
+  }
+
+  &-button {
+    display: inline-block;
+    vertical-align: top;
+    background: $background;
+    border-radius: $border-radius;
+    width: $component-size * 2;
+    height: $component-size;
+
+    &.large {
+      height: $component-size-large;
+      width: $component-size-large * 2;
+
+      &.circle {
+        width: $component-size-large;
+      }
+    }
+
+    &.medium {
+      height: $component-size;
+      width: $component-size * 2;
+
+      &.circle {
+        width: $component-size;
+      }
+    }
+
+    &.small {
+      height: $component-size-small;
+      width: $component-size-small * 2;
+
+      &.circle {
+        width: $component-size-small;
+      }
+    }
+
+    &.round {
+      border-radius: $component-size;
+    }
+
+    &.circle {
+      border-radius: 50%;
+    }
+  }
+
+  &-avatar {
+    display: inline-block;
+    vertical-align: top;
+    background: $background;
+    width: $component-size;
+    height: $component-size;
+
+    &.circle {
+      border-radius: 50%;
+    }
+
+    &.large {
+      width: $component-size-large;
+      height: $component-size-large;
+      line-height: $component-size-large;
+    }
+
+    &.medium {
+      height: $component-size;
+      line-height: $component-size;
+      width: $component-size;
+    }
+
+    &.small {
+      height: $component-size-small;
+      line-height: $component-size-small;
+      width: $component-size-small;
+    }
+  }
+
+  &.active,
+  &-element-wrap.active {
+    .c-skeleton-title,
+    .c-skeleton-button,
+    .c-skeleton-input,
+    .c-skeleton-avatar,
+    .c-skeleton-paragraph li {
+      background: linear-gradient(90deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
+      background-size: 400% 100%;
+      animation: skeleton-loading 1.4s ease infinite;
+    }
+  }
+
+  &-paragraph {
+    margin-top: $component-span;
+
+    li {
+      width: 100%;
+      height: $font-size-large;
+      list-style: none;
+      background: $background;
+
+      &:last-child:not(:first-child):not(:nth-child(2)) {
+        width: 60%;
+      }
+
+      & + li {
+        margin-top: $component-span;
+      }
+    }
+  }
+}

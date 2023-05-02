@@ -1,0 +1,184 @@
+.c-select {
+  position: relative;
+  display: inline-flex;
+  min-width: $space9;
+  min-height: $component-size;
+
+  .c-tag {
+    box-sizing: border-box;
+    margin: 2px 0 2px $text-span;
+    border-color: transparent;
+    border-radius: $border-radius;
+  }
+
+  &.radius {
+    .c-input {
+      .c-input-input {
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  &.circle {
+    .c-input {
+      .c-input-input {
+        border-radius: $component-size;
+      }
+    }
+  }
+
+  &.small-radius {
+    .c-input {
+      .c-input-input {
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  .c-input {
+    display: flex;
+    flex: 1;
+
+    .c-input-input {
+      cursor: pointer;
+    }
+  }
+
+  .reverse-icon {
+    transform: rotateZ(180deg);
+  }
+
+  .c-select-caret {
+    font-size: $font-size-mini;
+    transition: $transition-time;
+    cursor: pointer;
+    color: $right-icon-color;
+  }
+
+  .c-select-clear {
+    font-size: $font-size-large;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &.block {
+    display: block !important;
+  }
+
+  .c-select-tags {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: normal;
+    white-space: normal;
+    transform: translateY(-50%);
+
+    .c-select-tag-text {
+
+    }
+
+    & > div {
+      display: contents;
+    }
+
+    .c-select-input {
+      padding: 0;
+      margin-left: $content-padding;
+      border: none;
+      outline: none;
+      color: $content-text-color;
+      background-color: transparent;
+      appearance: none;
+    }
+  }
+}
+
+.c-select-dropdown {
+  @include drop;
+
+  .c-scrollbar-wrap.c-select-dropdown-wrap {
+    max-height: 30rem;
+  }
+
+  &-transfer.drop {
+    z-index: $z-index-transfer;
+  }
+
+  .c-select-group-title {
+    height: $component-size;
+    padding: 0 $content-padding;
+    font-size: $font-size-small;
+    line-height: $component-size;
+    color: $sub-color;
+    cursor: default;
+    user-select: none;
+  }
+
+  .c-select-group-wrap {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .c-select-dropdown-list {
+    margin: 0;
+    padding: $text-padding 0;
+
+    .c-select-dropdown-item {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0 $content-padding-middle;
+      height: $component-size;
+      overflow: hidden;
+      font-size: $font-size-small;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $content-text-color;
+      transition: background $transition-time $ease-in-out;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &.selected {
+        color: $select-selected-text-color;
+      }
+
+      &.disabled {
+        color: $disabled-text-color;
+        cursor: not-allowed;
+      }
+
+      .c-select-item-icon {
+        margin-right: $text-span;
+      }
+
+      .c-select-item-text {
+        flex: 1;
+      }
+
+      &:hover {
+        background: $hover-background;
+      }
+
+      &.c-select-item-disabled {
+        color: $disabled-text-color;
+      }
+
+      @include user-select-none;
+    }
+
+    @include list-un-styled;
+  }
+
+  .c-select-dropdown-empty {
+    padding: $content-padding 0;
+    margin: 0;
+    text-align: center;
+    color: $sub-color;
+    font-size: $font-size-small;
+  }
+}

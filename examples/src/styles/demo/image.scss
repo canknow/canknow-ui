@@ -1,0 +1,12 @@
+.demo-image-list {
+  display: flex;
+
+  .demo-image-item {
+    padding: $content-padding;
+    text-align: center;
+  }
+
+  .demo-image-demonstration {
+    display: block;
+  }
+}

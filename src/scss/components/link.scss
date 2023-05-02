@@ -1,0 +1,63 @@
+@include b(link) {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: $font-size;
+
+  @include when(underline) {
+    &:hover:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      bottom: 0;
+      border-bottom: $border-width solid $primary-color
+    }
+  }
+
+  @include when(disabled) {
+    cursor: not-allowed;
+  }
+
+  .c-link-icon {
+    margin-right: $text-span;
+  }
+
+  @each $scene, $color in $base-scene-colors {
+    &.#{$scene} {
+      color: $color;
+
+      &:hover {
+        color: $color
+      }
+      &:after {
+        border-color: $color
+      }
+      @include when(disabled) {
+        color: $placeholder-text-color;
+      }
+    }
+  }
+
+  &.default  {
+    color: $regular-text-color;
+
+    &:hover {
+      color: $primary-color;
+    }
+    &:after {
+      color: $primary-color;
+    }
+    @include when(disabled) {
+      color: $placeholder-text-color;
+    }
+  }
+}

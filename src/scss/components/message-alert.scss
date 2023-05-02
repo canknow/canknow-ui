@@ -1,0 +1,44 @@
+.c-message-alert {
+  padding: $content-padding-large;
+
+  .c-message-alert-icon-wrapper {
+    margin-bottom: $component-span-large;
+    text-align: center;
+
+    .c-message-alert-icon {
+      font-size: $component-size-huger;
+    }
+  }
+
+  .c-message-body {
+    text-align: center;
+
+    .c-message-content {
+      color: $property-text-color;
+    }
+  }
+
+  &.info {
+    .c-message-alert-icon {
+      color: $info-color !important;
+    }
+  }
+
+  &.success {
+    .c-message-alert-icon {
+      color: $success-color !important;
+    }
+  }
+
+  &.warning {
+    .c-message-alert-icon {
+      color: $warning-color !important;
+    }
+  }
+
+  &.error {
+    .c-message-alert-icon {
+      color: $error-color !important;
+    }
+  }
+}

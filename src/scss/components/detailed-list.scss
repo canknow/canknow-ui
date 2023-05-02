@@ -1,0 +1,54 @@
+.c-detailed-list {
+  padding: 0;
+  margin: 0;
+
+  .c-detailed-item {
+    margin-bottom: 0;
+    line-height: 2;
+
+    .c-detailed-item-label {
+      overflow: hidden;
+      font-size: $font-size;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $regular-text-color;
+      flex-shrink: 0;
+
+      @include user-select-none;
+    }
+
+    .c-detailed-item-content {
+      font-size: $font-size;
+      color: $primary-text-color;
+
+      .c-input-wrapper {
+        input {
+          border-color: transparent;
+        }
+      }
+
+      @include flex-adapter;
+    }
+
+    @include flex-horizontal;
+  }
+
+  &.small {
+    .c-detailed-item {
+      .c-detailed-item-label {
+        font-size: $font-size-small;
+      }
+      .c-detailed-item-content {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  &.justify-end {
+    .c-detailed-item-content {
+      text-align: right;
+    }
+  }
+
+  @include list-un-styled;
+}

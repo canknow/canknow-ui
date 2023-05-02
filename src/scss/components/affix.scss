@@ -1,0 +1,8 @@
+.c-affix {
+  position: fixed;
+  z-index: $z-index-affix;
+
+  &-absolute {
+    position: absolute;
+  }
+}

@@ -1,0 +1,223 @@
+.c-form {
+  .c-form-item {
+    +.c-form-item {
+      margin-top: $component-span;
+    }
+
+    .c-form-item-label {
+      display: block;
+      height: $component-size;
+      margin-bottom: $component-span;
+      overflow: hidden;
+      font-weight: normal;
+      font-size: $font-size-small;
+      line-height: $component-size;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $regular-text-color;
+
+      @include user-select-none;
+    }
+
+    &.no-label {
+      .c-form-item-body {
+        margin-left: 0 !important;
+      }
+    }
+
+    .c-form-item-body {
+      position: relative;
+
+      + .c-form-item-body {
+        margin-top: $component-span;
+      }
+
+      .c-form-item {
+        margin-bottom: $component-span;
+      }
+
+      .c-form-item-help {
+        margin-top: $component-span;
+        color: $secondary-text-color;
+        font-size: $font-size-small;
+      }
+
+      .c-form-item-content {
+        position: relative;
+        display: block;
+        line-height: $component-size;
+        min-height: $component-size;
+
+        textarea {
+          display: block;
+          width: 100%;
+        }
+
+        .c-form-item-error-tip {
+          position: relative;
+          font-size: $font-size-small;
+          color: $error-color;
+          user-select: none;
+          display: flex;
+          align-items: center;
+          line-height: 1;
+          padding: $text-padding 0;
+        }
+      }
+    }
+
+    .input-validate-icon {
+      display: none;
+      width: $font-size-large;
+      height: $font-size-large;
+      border: $border-width solid;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    &.required {
+      .c-form-item-label {
+        &::after {
+          display: inline-block;
+          margin-left: $text-span;
+          font-size: $font-size-small;
+          font-family: SimSun;
+          color: $error-color;
+          content: "*";
+        }
+      }
+    }
+
+    &.error {
+      .c-form-item-content {
+        &>.c-input {
+          .c-input-input {
+            &, &:focus {
+              border-color: $danger-color;
+            }
+          }
+
+          .c-input-validate-icon {
+            color: $danger-color;
+          }
+        }
+        &>.c-input-number {
+          .c-input {
+            .input-base {
+              border-color: $danger-color;
+            }
+          }
+        }
+        &>.c-select {
+          .c-input-input {
+            &, &:focus {
+              border-color: $danger-color;
+            }
+          }
+
+          .c-input-validate-icon {
+            color: $danger-color;
+          }
+        }
+      }
+    }
+
+    &.c-form-item-feedback {
+      .c-select {
+        .c-select-caret {
+          display: none;
+        }
+      }
+
+      .c-input-validate-icon {
+        display: inline-block;
+      }
+    }
+  }
+
+  .c-form-label-right {
+    .c-form-item-label {
+      text-align: right;
+    }
+  }
+
+  &.vertical {
+    .c-form-item {
+
+      .c-form-item-label {
+        margin-bottom: 0;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.horizontal {
+    .c-form-item {
+      display: flex;
+
+      .c-form-item-label {
+        padding: 0 $content-padding;
+        margin: 0;
+        flex-shrink: 0;
+      }
+
+      .c-form-item-body {
+        flex: 1;
+      }
+    }
+  }
+
+  &.inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: $component-span;
+
+    .c-form-item {
+      display: inline-flex;
+      align-items: center;
+      padding: $text-padding 0;
+      margin-right: $component-span;
+      margin-bottom: 0;
+
+      +.c-form-item {
+        margin-top: 0;
+      }
+
+      .c-form-item-label {
+        display: inline-block;
+        padding: 0 $content-padding;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+
+      .c-form-item-body {
+        display: flex;
+        align-items: center;
+
+        .c-form-item-content {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      @include clearfix;
+    }
+  }
+}
+
+fieldset {
+  border: $border-width solid $border-color;
+  border-radius: $module-radius;
+
+  legend {
+    padding: $text-padding;
+    font-weight: bold;
+  }
+}
+
+h3.c-form-section {
+  margin-top: $component-span;
+  font-weight: 100;
+  color: $title-text-color;
+}

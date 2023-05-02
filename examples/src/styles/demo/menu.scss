@@ -1,0 +1,8 @@
+.menu-vertical-demo {
+  border-right: $border-width solid $border-color;
+}
+
+.menu-vertical-demo:not(.collapse) {
+  width: 200px;
+  min-height: 400px;
+}

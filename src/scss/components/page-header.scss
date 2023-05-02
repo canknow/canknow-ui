@@ -1,0 +1,127 @@
+.c-page-header {
+  position: relative;
+  border-bottom: $border-width solid $split-color;
+  background-color: white;
+
+  &.shadow {
+    @include shadow(2, 'down');
+  }
+
+  &.fixed-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    + .page-content {
+      padding-top: $page-header-height;
+    }
+  }
+
+  &.light {
+    background-color: white;
+
+    .page-header-text-color-primary {
+      color: $page-header-light-text-color-primary;;
+    }
+
+    .page-header-text-color-secondary {
+      color: $page-header-light-text-color-secondary;;
+    }
+
+    .c-page-header-page-title {
+      color: $page-header-light-text-color-primary;
+    }
+
+    .c-dropdown {
+      .c-dropdown-handle-title {
+        color: $page-header-light-text-color-secondary;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: $black-color;
+  }
+
+  &.primary {
+    background-color: $primary-color;
+  }
+
+  &.dark,
+  &.primary,
+  &.color {
+    border-bottom: none;
+
+    .page-header-text-color-primary {
+      color: $page-header-dark-text-color-primary;;
+    }
+
+    .page-header-text-color-secondary {
+      color: $page-header-dark-text-color-secondary;;
+    }
+
+    .c-page-header-page-title {
+      color: $page-header-dark-text-color-primary;
+    }
+
+    .c-dropdown {
+      .c-dropdown-handle-title {
+        color: $page-header-dark-text-color-primary;
+      }
+    }
+  }
+
+  .banner {
+    overflow: hidden;
+  }
+
+  .c-page-header-wrapper {
+    height: $page-header-height;
+    padding: 0 $content-padding;
+
+    @include flex-horizontal-align-center;
+  }
+
+  .c-page-header-button-back {
+    display: block;
+    margin-right: $component-span;
+  }
+
+  .c-page-header-title-block {
+    flex-shrink: 0;
+    margin-right: $space2;
+    cursor: pointer;
+
+    .c-page-header-page-logo {
+      display: block;
+      height: $component-size;
+      margin-right: $component-span;
+    }
+
+    .c-page-header-page-title {
+      display: block;
+      font-weight: bold;
+      font-size: $font-size-largest;
+      cursor: pointer;
+
+      @include user-select-none;
+    }
+
+    @include flex-horizontal-align-center;
+  }
+
+  .c-page-header-right-wrap {
+    flex-shrink: 0;
+
+    @include flex-horizontal-align-center;
+  }
+
+
+  .navbar-toggle-button {
+    transition: $transition-time;
+
+    &.active {
+      transform: rotateZ(90deg);
+    }
+  }
+}

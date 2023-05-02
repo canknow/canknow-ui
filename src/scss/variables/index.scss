@@ -1,0 +1,12 @@
+@import "size";
+@import "components";
+@import "app";
+
+$base-scene-colors: (
+  primary: $primary-color,
+  danger: $error-color,
+  success: $success-color,
+  warning: $warning-color,
+  info: $info-color);
+
+$notification-width: 330px;

@@ -1,0 +1,58 @@
+@include b(collapse) {
+  border-top: $border-width solid $border-color;
+  border-bottom: $border-width solid $border-color;
+}
+
+@include b(collapse-item) {
+  @include when(disabled) {
+    .c-collapse-item-header {
+      color: $disabled-text-color;
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(header) {
+    display: flex;
+    align-items: center;
+    padding: $content-padding;
+    background-color: $component-background;
+    color: $title-text-color;
+    cursor: pointer;
+    border-bottom: $border-width solid $split-color;
+    transition: border-bottom-color $transition-time;
+    outline: none;
+
+    @include e(arrow) {
+      margin: 0 $content-padding 0 auto;
+      transition: transform $transition-time;
+      font-size: $font-size-mini;
+
+      @include when(active) {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.focusing:focus:not(:hover) {
+      color: $primary-color;
+    }
+    @include when(active) {
+      border-bottom-color: transparent;
+    }
+  }
+
+  @include e(wrap) {
+    will-change: height;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: $border-width solid $border-color;
+  }
+
+  @include e(content) {
+    font-size: $font-size;
+    color: $regular-text-color;
+  }
+
+  &:last-child {
+    margin-bottom: -1px;
+  }
+}

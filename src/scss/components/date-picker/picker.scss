@@ -1,0 +1,159 @@
+@include b(date-editor) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  .range-icon {
+    margin-left: -$text-span;
+    font-size: $font-size-large;
+    color: $sub-color;
+  }
+
+  .range-input {
+    flex: 1;
+    width: auto;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    font-size: $font-size-small;
+    text-align: center;
+    color: $content-text-color;
+    appearance: none;
+    background: transparent;
+
+    &::placeholder {
+      color: $placeholder-text-color;
+    }
+  }
+
+  .range-separator {
+    display: block;
+    width: $space2;
+    padding: 0 $text-padding;
+    margin: 0;
+    font-size: $font-size;
+    text-align: center;
+    color: $primary-color;
+  }
+
+  .range-close-icon {
+    display: block;
+    font-size: $font-size-small;
+    color: $property-text-color;
+    opacity: 0;
+    cursor: pointer;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  @include m((monthrange)) {
+    &.c-input,
+    &.c-input-inner {
+      width: 300px;
+    }
+  }
+
+  @include m((daterange, timerange)) {
+    &.c-input,
+    &.c-input-inner {
+      width: 350px;
+    }
+  }
+
+  @include m(datetimerange) {
+    &.c-input,
+    &.c-input-inner {
+      width: 400px;
+    }
+  }
+
+  @include m(dates) {
+    .c-input-inner {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+@include b(range-editor) {
+  &.c-input-inner {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 $content-padding;
+  }
+
+  .range-input {
+    line-height: 1;
+  }
+
+  @include when(active) {
+    border-color: $primary-color;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+
+  @include m(medium) {
+    &.c-input-inner {
+      height: $component-size;
+    }
+
+    .range-separator {
+      font-size: $font-size-small;
+    }
+
+    .range-input {
+      font-size: $font-size-small;
+    }
+
+    .range-icon,
+    .range-close-icon {
+      font-size: $font-size-large;
+    }
+  }
+
+  @include m(small) {
+    &.c-input-inner {
+      height: $component-size-small;
+    }
+
+    .range-separator {
+      font-size: $font-size-small;
+    }
+
+    .range-input {
+      font-size: $font-size-small;
+    }
+  }
+
+  @include when(disabled) {
+    border-color: $border-color;
+    color: $disabled-text-color;
+    background-color: $disabled-background;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      border-color: $border-color;
+    }
+
+    input {
+      color: $disabled-text-color;
+      background-color: $disabled-background;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $placeholder-text-color;
+      }
+    }
+
+    .range-separator {
+      color: $disabled-text-color;
+    }
+  }
+}

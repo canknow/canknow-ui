@@ -1,0 +1,122 @@
+.member-header {
+  .profile-box {
+    position: relative;
+    padding: $content-padding;
+    background: linear-gradient(90deg, #eb3c3c, #ff7459);
+
+    .profile-avatar-box {
+      margin-right: $component-span;
+
+      .profile-avatar {
+        width: $component-size-larger;
+        height: $component-size-larger;
+        border-radius: 50%;
+      }
+    }
+
+    .upgrade-button {
+      position: absolute;
+      top: 50%;
+      right: $content-padding;
+      border-color: #fff;
+      color: #fff;
+      background-color: transparent;
+      transform: translateY(-50%);
+    }
+
+    .profile-body {
+      .profile-name {
+        display: block;
+        margin-bottom: $component-span;
+        font-weight: bold;
+        font-size: $font-size-small;
+
+        .icon-edit {
+          color: #fff;
+        }
+
+        @include user-select-none;
+      }
+
+      .user-number {
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .member-level {
+        display: block;
+        margin-bottom: $component-span;
+        user-select: none;
+
+        .member-level-content {
+          display: inline-block;
+          padding: 0 $text-padding;
+          border-radius: $border-radius;
+          line-height: 1;
+          background: rgba(255, 255, 255, .2);
+          user-select: none;
+
+          .member-level-icon{
+
+          }
+
+          .member-level-name {
+            user-select: none;
+          }
+        }
+      }
+
+      .profile-property-box {
+        .profile-property-item{
+
+        }
+      }
+
+      @include flex-adapter;
+    }
+
+    @include flex-horizontal;
+  }
+
+  &.light {
+    .profile-box {
+      .profile-body {
+        .profile-name {
+          color: $title-text-color;
+        }
+
+        .profile-property-box {
+          .profile-property-item {
+            color: $secondary-text-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+    .profile-box {
+      .profile-body {
+        .profile-name {
+          color: #fff;
+        }
+
+        .member-level {
+          .member-level-icon{
+
+          }
+
+          .member-level-name {
+            color: #fff;
+          }
+        }
+
+        .profile-property-box {
+          .profile-property-item {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

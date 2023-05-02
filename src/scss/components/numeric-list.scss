@@ -1,0 +1,33 @@
+.c-numeric-list {
+  margin-left: 0;
+  color: $content-text-color;
+  counter-reset: li;
+
+  li {
+    padding: $text-padding $content-padding;
+
+    &::before {
+      display: inline-block;
+      width: $font-size-larger * 1.5;
+      height: $font-size-larger * 1.5;
+      margin-right: $text-span;
+      border-radius: 50%;
+      font-style: italic;
+      font-weight: bold;
+      font-size: $font-size-larger;
+      line-height: $font-size-larger * 1.5;
+      text-align: center;
+      color: $property-text-color;
+      content: counter(li);
+      counter-increment: li;
+    }
+
+    &:nth-child(1)::before,
+    &:nth-child(2)::before,
+    &:nth-child(3)::before {
+      color: $primary-color;
+    }
+  }
+
+  @include list-un-styled;
+}
